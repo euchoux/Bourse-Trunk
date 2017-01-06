@@ -1,0 +1,39 @@
+
+.principal-div {
+  padding: 30px;
+  max-width: 50%;
+  width: 100% !important;
+  background-color: #F7F7F7;
+  margin: 0 auto;
+  border-radius: 2px;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.principal-div h1 {
+	text-align: center;
+	color: #71A0CA;
+}
+
+.form-group input[type=text] {
+  height: 35px;
+  width: 100%;
+}
+
+.form-group select{
+  width: 100%;
+}
+
+.espacement {
+	padding-top: 15px;
+}
+
+.center {
+	text-align: center;
+}
+
+.checkbox-label {
+	display: inline-block; 
+	vertical-align: text-top; 
+	padding-left: 10px;
+}
