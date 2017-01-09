@@ -2,7 +2,9 @@ package ci.bourse.renouv.dto;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
+import java.util.Set;
+
+import ci.bourse.renouv.model.Profil;
 
 /**
  * @author euchoux
@@ -29,9 +31,9 @@ public class UtilisateurDto implements Serializable {
 
 	private SexeDto sexe;
 
-	private List<ProfilDto> listProfils;
+	private Profil profil;
 
-	private List<PaysDto> paysGestion;
+	private Set<PaysDto> paysGestion;
 
 	public UtilisateurDto() {
 		super();
@@ -171,24 +173,24 @@ public class UtilisateurDto implements Serializable {
 	}
 
 	/**
-	 * @return the listProfilsDto
+	 * @return the profil
 	 */
-	public List<ProfilDto> getListProfils() {
-		return listProfils;
+	public Profil getProfil() {
+		return profil;
 	}
 
 	/**
-	 * @param listProfilsDto
-	 *            the listProfilsDto to set
+	 * @param profil
+	 *            the profil to set
 	 */
-	public void setListProfils(final List<ProfilDto> listProfilsDto) {
-		this.listProfils = listProfilsDto;
+	public void setProfil(final Profil profil) {
+		this.profil = profil;
 	}
 
 	/**
 	 * @return the paysGestionDto
 	 */
-	public List<PaysDto> getPaysGestion() {
+	public Set<PaysDto> getPaysGestion() {
 		return paysGestion;
 	}
 
@@ -196,7 +198,7 @@ public class UtilisateurDto implements Serializable {
 	 * @param paysGestionDto
 	 *            the paysGestionDto to set
 	 */
-	public void setPaysGestion(final List<PaysDto> paysGestionDto) {
+	public void setPaysGestion(final Set<PaysDto> paysGestionDto) {
 		this.paysGestion = paysGestionDto;
 	}
 

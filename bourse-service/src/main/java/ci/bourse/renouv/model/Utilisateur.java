@@ -57,10 +57,9 @@ public class Utilisateur extends AbstractData<Integer> {
 	@JoinColumn(name = "sexe_id", nullable = false)
 	private Sexe sexe;
 
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name = "Droit", joinColumns = @JoinColumn(name = "user_id"),
-			inverseJoinColumns = @JoinColumn(name = "profil_id"))
-	private Set<Profil> listProfils;
+	@ManyToOne
+	@JoinColumn(name = "profil_id", nullable = false)
+	private Profil profil;
 
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "Utilisateur_Pays",
@@ -205,18 +204,18 @@ public class Utilisateur extends AbstractData<Integer> {
 	}
 
 	/**
-	 * @return the listProfils
+	 * @return the profil
 	 */
-	public Set<Profil> getListProfils() {
-		return listProfils;
+	public Profil getProfil() {
+		return profil;
 	}
 
 	/**
-	 * @param listProfils
-	 *            the listProfils to set
+	 * @param profil
+	 *            the profil to set
 	 */
-	public void setListProfils(final Set<Profil> listProfils) {
-		this.listProfils = listProfils;
+	public void setProfil(final Profil profil) {
+		this.profil = profil;
 	}
 
 	/**
