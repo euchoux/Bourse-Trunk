@@ -4,6 +4,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import org.apache.commons.lang3.Validate;
+import org.springframework.util.Base64Utils;
 
 import ci.bourse.renouv.constant.BourseConstant;
 import ci.bourse.renouv.exception.MetierException;
@@ -46,7 +47,7 @@ public class PasswordUtils {
             md.update(message.getBytes());
             // hachage
             result = md.digest();
-			return result.toString();
+			return Base64Utils.encodeToString(result);
         }
 		catch (final NoSuchAlgorithmException e)
         {

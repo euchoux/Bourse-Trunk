@@ -4,8 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
-import ci.bourse.renouv.model.Profil;
-
 /**
  * @author euchoux
  */
@@ -31,7 +29,7 @@ public class UtilisateurDto implements Serializable {
 
 	private SexeDto sexe;
 
-	private Profil profil;
+	private ProfilDto profil;
 
 	private Set<PaysDto> paysGestion;
 
@@ -175,7 +173,7 @@ public class UtilisateurDto implements Serializable {
 	/**
 	 * @return the profil
 	 */
-	public Profil getProfil() {
+	public ProfilDto getProfil() {
 		return profil;
 	}
 
@@ -183,7 +181,7 @@ public class UtilisateurDto implements Serializable {
 	 * @param profil
 	 *            the profil to set
 	 */
-	public void setProfil(final Profil profil) {
+	public void setProfil(final ProfilDto profil) {
 		this.profil = profil;
 	}
 

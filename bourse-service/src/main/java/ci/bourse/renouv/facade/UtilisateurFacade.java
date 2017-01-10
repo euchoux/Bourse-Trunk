@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import ci.bourse.renouv.dto.UtilisateurDto;
+import ci.bourse.renouv.dto.UtilisateurDtoLight;
 import ci.bourse.renouv.exception.MetierException;
 
 /**
@@ -55,8 +56,9 @@ public interface UtilisateurFacade extends Serializable {
 	 * 
 	 * @param login
 	 * @param password
+	 * @return {@link UtilisateurDtoLight}
 	 * @throws MetierException
 	 */
-	void verifierLoginMdp(String login, String password) throws MetierException;
+	UtilisateurDtoLight verifierLoginMdp(String login, String password) throws MetierException;
 
 }

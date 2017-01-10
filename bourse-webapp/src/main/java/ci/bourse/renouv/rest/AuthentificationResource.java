@@ -1,7 +1,5 @@
 package ci.bourse.renouv.rest;
 
-import java.io.UnsupportedEncodingException;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -12,16 +10,17 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.log4j.Logger;
+import org.codehaus.jettison.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.auth0.jwt.JWT;
-import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.JWTCreationException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ci.bourse.renouv.constant.BourseConstant;
-import ci.bourse.renouv.exception.MetierException;
+import ci.bourse.renouv.dto.UtilisateurDtoLight;
 import ci.bourse.renouv.facade.UtilisateurFacade;
+import ci.bourse.renouv.utils.TokenUtils;
 
 /**
  * La ressource REST permettant de gérer l'authentification de l'utilisateur.
@@ -53,68 +52,34 @@ public class AuthentificationResource {
 	 * @param login
 	 * @param password
 	 * @return
+	 * @throws JSONException
 	 */
 	@POST
 	@Path("/authenticate")
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response authenticateUser(@FormParam("login") final String login,
-			@FormParam("password") final String password) {
-
+			@FormParam("password") final String password) throws JsonProcessingException {
+		final ObjectMapper jsonMapper = new ObjectMapper();
 		try {
 
 			Validate.notBlank(login);
 			Validate.notBlank(password);
 
 			// Authenticate the user using the credentials provided
-			authenticate(login, password);
+			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(login, password);
 
 			// Issue a token for the user
-			final String token = issueToken(login);
+			final String token = TokenUtils.issueToken(login, user);
 
 			// Return the token on the response
-			return Response.ok(token).build();
+			return Response.ok(jsonMapper.writeValueAsString(user))
+					.header(BourseConstant.AUTHORIZATION_PROPERTY, BourseConstant.AUTHENTICATION_SCHEME + token)
+					.build();
 
 		} catch (final Exception e) {
-			return Response.status(Response.Status.UNAUTHORIZED).entity(e.getMessage()).build();
+			return Response.status(Response.Status.FORBIDDEN).entity(jsonMapper.writeValueAsString(e.getMessage()))
+					.build();
 		}
-	}
-
-	/**
-	 * Gestion du contrôle du login/pwd.
-	 * 
-	 * @param login
-	 * @param password
-	 * @throws MetierException
-	 */
-	private void authenticate(final String login, final String password) throws MetierException {
-		// TODO: Retourner l'utilisateur si authentifcation ok.
-		utilisateurFacade.verifierLoginMdp(login, password);
-	}
-
-	/**
-	 * Génération et stockage du tocken d'authentification.
-	 * 
-	 * @param username
-	 * @return
-	 */
-	private String issueToken(final String username) {
-
-		String token = "";
-		try {
-			token = JWT.create().withIssuer(BourseConstant.ISSUER_JETON)
-					.sign(Algorithm.HMAC256(BourseConstant.CLE_JETON));
-			LOGGER.debug("Jeton correctement créé");
-			LOGGER.debug("----- Debut stockage en session");
-
-			// TODO: EBO - Implémenter stockage en session
-
-			LOGGER.debug("----- Fin stockage en session");
-
-		} catch (final JWTCreationException | IllegalArgumentException | UnsupportedEncodingException exception) {
-			LOGGER.error("Erreur de génération du token.");
-		}
-
-		return token;
 	}
 }

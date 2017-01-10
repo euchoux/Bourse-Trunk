@@ -1,2 +1,8 @@
+ci/bourse/renouv/securite/JwtAuthenticationProvider.class
 ci/bourse/renouv/rest/MobileResource.class
+ci/bourse/renouv/securite/JwtAuthenticationFilter.class
+ci/bourse/renouv/rest/AuthentificationResource.class
 ci/bourse/renouv/rest/UtilisateurResource.class
+ci/bourse/renouv/securite/RestAuthenticationEntryPoint.class
+ci/bourse/renouv/utils/TokenUtils.class
+ci/bourse/renouv/securite/JwtAuthenticationSuccessHandler.class

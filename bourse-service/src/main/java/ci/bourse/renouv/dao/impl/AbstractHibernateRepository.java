@@ -5,9 +5,6 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 import javax.annotation.Resource;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -167,10 +164,5 @@ public abstract class AbstractHibernateRepository<T extends AbstractData<?>, Id 
 	public boolean contains(final T pData) {
 		final Session currentSession = getSession();
 		return currentSession.contains(pData);
-	}
-
-	public EntityManager getEntityManager() {
-		final EntityManagerFactory mef = Persistence.createEntityManagerFactory("persistenUnit");
-		return mef.createEntityManager();
 	}
 }

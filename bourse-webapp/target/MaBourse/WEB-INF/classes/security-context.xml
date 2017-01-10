@@ -1,34 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:security="http://www.springframework.org/schema/security"
-	xsi:schemaLocation="
-        http://www.springframework.org/schema/beans
-        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-        http://www.springframework.org/schema/security
-        http://www.springframework.org/schema/security/spring-security-3.1.xsd">
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/security
+        http://www.springframework.org/schema/security/spring-security-4.2.xsd">
 
-	<!-- l'application mobile peut acceder sans authentification -->
-	<security:http pattern="/rest/mobile/**" security="none" />
+     <security:global-method-security secured-annotations="enabled"/>
+     
+    <security:http pattern="/rest/mobile/**" security="none"/>   
+    <security:http pattern="/rest/security/authenticate" security="none"/>
 
-	<security:http auto-config="true">
-		<security:intercept-url pattern="/**" access="ADMIN_BOURSE,ADMIN_MINISTERE,GES_AMBASSADE,GES_BOURSE,GES_MINISTERE,CONSULTATION,AUTRE"/>
-	</security:http>
-	
-	<!-- Authentification : login/pwd  en base de données -->
-	<security:authentication-manager>
-		<security:authentication-provider>
-			<security:jdbc-user-service data-source-ref="dataSource"/>
-		</security:authentication-provider>
-	</security:authentication-manager>
+    <security:http pattern="/rest/**" entry-point-ref="restAuthenticationEntryPoint" create-session="stateless">
+        <security:csrf disabled="true"/>  
+        <security:custom-filter before="FORM_LOGIN_FILTER" ref="jwtAuthenticationFilter"/> 
+    </security:http>
+    
+    <bean id="jwtAuthenticationFilter" class="ci.bourse.renouv.securite.JwtAuthenticationFilter">  
+        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="authenticationSuccessHandler" ref="jwtAuthenticationSuccessHandler" /> 
+    </bean>
 
-	<!-- Permet de passer les messages d'erreur en français -->
-	<bean id="messageSource"
-		class="org.springframework.context.support.ResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>security-messages</value>
-			</list>
-		</property>
-	</bean>
+    <security:authentication-manager alias="authenticationManager">
+        <security:authentication-provider ref="jwtAuthenticationProvider" /> 
+    </security:authentication-manager>
 
 </beans>

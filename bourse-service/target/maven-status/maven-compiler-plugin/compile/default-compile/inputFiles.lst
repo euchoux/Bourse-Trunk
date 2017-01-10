@@ -6,12 +6,14 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/BourseDto.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Statut.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/HistoScolariteDto.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/constant/ProfilConstant.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/EleveParentPkDto.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/LienDao.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/StatutDao.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/exception/MetierException.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/AbstractData.java
-/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/constant/SecuriteConstant.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/ProfilDto.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/exception/TechniqueException.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/facade/impl/UtilisateurFacadeImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/facade/impl/NomenclatureFacadeImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/EleveParentDto.java
@@ -25,6 +27,7 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/UtilisateurDto.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/service/UtilisateurService.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/utils/PasswordUtils.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/facade/impl/AbstractFacade.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Boursier.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/EleveParentDao.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/service/SexeService.java
@@ -43,13 +46,13 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/StatutDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/SerieDto.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/SexeDto.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/securite/ProfilEnum.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Utilisateur.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/BourseDao.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Renouvellement.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/PaysDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/EleveParent.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/SerieDao.java
-/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/exception/BourseMetierException.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/FiliationDao.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/DefaultRepository.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Filiation.java
@@ -59,6 +62,7 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Sexe.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/RenouvellementDao.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/HistoScolariteDao.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/UtilisateurDtoLight.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/UtilisateurDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/NiveauDao.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/FicheConfidentielleDao.java

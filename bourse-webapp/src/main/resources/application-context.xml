@@ -43,6 +43,6 @@
     <!-- Database Configuration -->
 	<import resource="datasource.xml" />
 	<import resource="hibernate.cfg.xml" />
-<!-- 	<import resource="security-context.xml" /> -->
+	<import resource="security-context.xml" />
 
 </beans>

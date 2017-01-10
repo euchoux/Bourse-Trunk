@@ -11,11 +11,11 @@ public class ProfilConstant {
 	public ProfilConstant() {
 	}
 
-	public static final String ADMIN_BOURSE = "ADMIN_BOURSE";
-	public static final String ADMIN_MINISTERE = "ADMIN_MINISTERE";
-	public static final String GES_AMBASSADE = "GES_AMBASSADE";
-	public static final String GES_BOURSE = "GES_BOURSE";
-	public static final String GES_MINISTERE = "GES_MINISTERE";
-	public static final String CONSULTATION = "CONSULTATION";
-	public static final String AUTRE = "AUTRE";
+	public static final String ROLE_ADMIN_BOURSE = "ROLE_ADMIN_BOURSE";
+	public static final String ROLE_ADMIN_MINISTERE = "ROLE_ADMIN_MINISTERE";
+	public static final String ROLE_GES_AMBASSADE = "ROLE_GES_AMBASSADE";
+	public static final String ROLE_GES_BOURSE = "ROLE_GES_BOURSE";
+	public static final String ROLE_GES_MINISTERE = "ROLE_GES_MINISTERE";
+	public static final String ROLE_CONSULTATION = "ROLE_CONSULTATION";
+	public static final String ROLE_AUTRE = "ROLE_AUTRE";
 }

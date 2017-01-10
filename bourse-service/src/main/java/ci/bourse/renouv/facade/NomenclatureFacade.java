@@ -3,6 +3,7 @@ package ci.bourse.renouv.facade;
 import java.io.Serializable;
 
 import ci.bourse.renouv.dto.PaysDto;
+import ci.bourse.renouv.dto.ProfilDto;
 import ci.bourse.renouv.dto.SexeDto;
 
 /**
@@ -23,6 +24,13 @@ public interface NomenclatureFacade extends Serializable {
 	 * @param sexe
 	 */
 	SexeDto trouverSexeParId(Integer sexeId);
+
+	/**
+	 * Permet de trouver un profil à partir de son code.
+	 * 
+	 * @param codeProfil
+	 */
+	ProfilDto trouverProfilParCode(String codeProfil);
 
 
 

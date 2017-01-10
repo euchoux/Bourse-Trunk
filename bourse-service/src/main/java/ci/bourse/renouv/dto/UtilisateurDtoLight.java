@@ -1,7 +1,8 @@
 package ci.bourse.renouv.dto;
 
 import java.io.Serializable;
-import java.util.List;
+
+import ci.bourse.renouv.securite.ProfilEnum;
 
 /**
  * @author euchoux
@@ -16,7 +17,7 @@ public class UtilisateurDtoLight implements Serializable {
 
 	private String prenoms;
 
-	private List<ProfilDto> listProfils;
+	private ProfilEnum userProfil;
 
 	public UtilisateurDtoLight() {
 		super();
@@ -62,18 +63,18 @@ public class UtilisateurDtoLight implements Serializable {
 
 
 	/**
-	 * @return the listProfilsDto
+	 * @return the profil
 	 */
-	public List<ProfilDto> getListProfils() {
-		return listProfils;
+	public ProfilEnum getUserProfil() {
+		return userProfil;
 	}
 
 	/**
-	 * @param listProfilsDto
-	 *            the listProfilsDto to set
+	 * @param profil
+	 *            the profil to set
 	 */
-	public void setListProfils(final List<ProfilDto> listProfilsDto) {
-		this.listProfils = listProfilsDto;
+	public void setUserProfil(final ProfilEnum userProfil) {
+		this.userProfil = userProfil;
 	}
 
 	/*

@@ -7,14 +7,14 @@ import junit.framework.TestSuite;
 /**
  * Unit test for GenererJetonSaml.
  */
-public class GenererJetonSamlTest extends TestCase {
+public class PasswordUtilsTest extends TestCase {
 	/**
 	 * Create the test case
 	 *
 	 * @param testName
 	 *            name of the test case
 	 */
-	public GenererJetonSamlTest(String testName) {
+	public PasswordUtilsTest(final String testName) {
 		super(testName);
 	}
 
@@ -22,14 +22,14 @@ public class GenererJetonSamlTest extends TestCase {
 	 * @return the suite of tests being tested
 	 */
 	public static Test suite() {
-		return new TestSuite(GenererJetonSamlTest.class);
+		return new TestSuite(PasswordUtilsTest.class);
 	}
 
 	/**
 	 * Rigourous Test :-)
 	 */
-	public void testGenererJetonSaml() {
+	public void testHacherMessageSHA256() {
 		
-		
+		assertEquals("BcatOYyzmT8tu3npQodIRQykUobVvAQ9UoFJxdhx1cQ=", PasswordUtils.hacherMessageSHA256("motDePasse"));
 	}
 }

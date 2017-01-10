@@ -1,5 +1,4 @@
 ci/bourse/renouv/dao/impl/FicheConfidentielleDaoImpl.class
-ci/bourse/renouv/exception/BourseMetierException.class
 ci/bourse/renouv/service/PaysService.class
 ci/bourse/renouv/model/Statut.class
 ci/bourse/renouv/dao/EleveParentDao.class
@@ -21,11 +20,15 @@ ci/bourse/renouv/dao/impl/ProfilDaoImpl.class
 ci/bourse/renouv/dao/impl/BoursierDaoImpl.class
 ci/bourse/renouv/dao/impl/FiliationDaoImpl.class
 ci/bourse/renouv/service/impl/SexeServiceImpl.class
+ci/bourse/renouv/dto/UtilisateurDtoLight.class
 ci/bourse/renouv/dto/FicheConfidentielleDto.class
 ci/bourse/renouv/model/Boursier.class
 ci/bourse/renouv/dto/NiveauDto.class
 ci/bourse/renouv/model/Pays.class
 ci/bourse/renouv/model/Renouvellement.class
+ci/bourse/renouv/exception/MetierException.class
+ci/bourse/renouv/securite/ProfilEnum.class
+ci/bourse/renouv/facade/impl/AbstractFacade.class
 ci/bourse/renouv/dto/BoursierDto.class
 ci/bourse/renouv/dao/impl/StatutDaoImpl.class
 ci/bourse/renouv/dao/SerieDao.class
@@ -40,6 +43,7 @@ ci/bourse/renouv/model/Lien.class
 ci/bourse/renouv/utils/DateUtils.class
 ci/bourse/renouv/service/impl/AbstractService.class
 ci/bourse/renouv/dto/EleveParentPkDto.class
+ci/bourse/renouv/exception/TechniqueException.class
 ci/bourse/renouv/model/Filiation.class
 ci/bourse/renouv/service/impl/PaysServiceImpl.class
 ci/bourse/renouv/dto/HistoScolariteDto.class
@@ -54,7 +58,7 @@ ci/bourse/renouv/model/EleveParentPk.class
 ci/bourse/renouv/service/impl/UtilisateurServiceImpl.class
 ci/bourse/renouv/utils/PasswordUtils.class
 ci/bourse/renouv/dao/FiliationDao.class
-ci/bourse/renouv/constant/SecuriteConstant.class
+ci/bourse/renouv/constant/ProfilConstant.class
 ci/bourse/renouv/model/EleveParent.class
 ci/bourse/renouv/dao/PaysDao.class
 ci/bourse/renouv/constant/BourseConstant.class

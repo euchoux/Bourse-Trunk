@@ -7,4 +7,6 @@ import ci.bourse.renouv.model.Profil;
  */
 public interface ProfilDao extends DefaultRepository<Profil, Integer> {
 
+	Profil findByCode(String codeProfil);
+
 }
