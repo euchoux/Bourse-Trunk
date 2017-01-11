@@ -1,5 +1,7 @@
 package ci.bourse.renouv.dao;
 
+import java.util.List;
+
 import ci.bourse.renouv.model.Utilisateur;
 
 /**
@@ -13,6 +15,13 @@ public interface UtilisateurDao extends DefaultRepository<Utilisateur, Integer> 
 	 * @param login
 	 * @return
 	 */
-	Utilisateur findByLogin(String login);
+	Utilisateur findByLogin(String login, boolean avecSupprime);
+
+	/**
+	 * Trouve tous les utilisateurs qui ne sont pas supprimés
+	 * 
+	 * @return
+	 */
+	List<Utilisateur> findAllUtilisateur();
 
 }

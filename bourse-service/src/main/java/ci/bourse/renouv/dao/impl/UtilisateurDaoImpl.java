@@ -1,5 +1,8 @@
 package ci.bourse.renouv.dao.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.NoResultException;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -21,7 +24,7 @@ public class UtilisateurDaoImpl extends AbstractHibernateRepository<Utilisateur,
 	}
 
 	@Override
-	public Utilisateur findByLogin(final String login) {
+	public Utilisateur findByLogin(final String login, final boolean avecSupprime) {
 
 		Utilisateur res;
 
@@ -30,12 +33,37 @@ public class UtilisateurDaoImpl extends AbstractHibernateRepository<Utilisateur,
 		final CriteriaQuery<Utilisateur> criteria = builder.createQuery(Utilisateur.class);
 		final Root<Utilisateur> root = criteria.from(Utilisateur.class);
 		criteria.select(root);
-		criteria.where(builder.equal(root.get("login"), login));
+		if (avecSupprime) {
+			criteria.where(builder.equal(root.get("login"), login));
+		} else {
+			criteria.where(builder.and(builder.equal(root.get("login"), login), builder.isFalse(root.get("supprime"))));
+		}
 
 		try {
 			res = getSession().createQuery(criteria).getSingleResult();
 		} catch (final NoResultException e) {
 			res = null;
+		}
+
+		return res;
+	}
+
+	@Override
+	public List<Utilisateur> findAllUtilisateur() {
+
+		List<Utilisateur> res;
+
+		final CriteriaBuilder builder = getSession().getCriteriaBuilder();
+
+		final CriteriaQuery<Utilisateur> criteria = builder.createQuery(Utilisateur.class);
+		final Root<Utilisateur> root = criteria.from(Utilisateur.class);
+		criteria.select(root);
+		criteria.where(builder.isFalse(root.get("supprime")));
+
+		try {
+			res = getSession().createQuery(criteria).getResultList();
+		} catch (final NoResultException e) {
+			res = new ArrayList<Utilisateur>();
 		}
 
 		return res;

@@ -20,9 +20,10 @@ import org.springframework.security.web.authentication.AbstractAuthenticationPro
 import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Component;
 
+import com.auth0.jwt.exceptions.InvalidClaimException;
+
 import ci.bourse.renouv.constant.BourseConstant;
 import ci.bourse.renouv.dto.UtilisateurDtoLight;
-import ci.bourse.renouv.exception.TechniqueException;
 import ci.bourse.renouv.utils.TokenUtils;
 
 /**
@@ -69,8 +70,15 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
 		UtilisateurDtoLight user;
 		try {
 			user = TokenUtils.verifierToken(token);
-		} catch (final TechniqueException e) {
-			throw new AuthenticationServiceException(e.getMessage());
+		} catch (final Exception e) {
+
+			if (e instanceof InvalidClaimException) {
+				response.sendError(HttpServletResponse.SC_FORBIDDEN, e.getMessage());
+			} else {
+				response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE, e.getMessage());
+			}
+
+			return null;
 		}
 
 		final UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken("ANONYME_KEY",

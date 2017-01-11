@@ -1,4 +1,5 @@
 ci/bourse/renouv/dao/impl/FicheConfidentielleDaoImpl.class
+ci/bourse/renouv/service/ProfilService.class
 ci/bourse/renouv/service/PaysService.class
 ci/bourse/renouv/model/Statut.class
 ci/bourse/renouv/dao/EleveParentDao.class
@@ -80,6 +81,7 @@ ci/bourse/renouv/dto/LienDto.class
 ci/bourse/renouv/dao/impl/UtilisateurDaoImpl.class
 ci/bourse/renouv/dao/impl/NiveauDaoImpl.class
 ci/bourse/renouv/model/FicheConfidentielle.class
+ci/bourse/renouv/service/impl/ProfilServiceImpl.class
 ci/bourse/renouv/model/Serie.class
 ci/bourse/renouv/model/Utilisateur.class
 ci/bourse/renouv/dto/PaysDto.class

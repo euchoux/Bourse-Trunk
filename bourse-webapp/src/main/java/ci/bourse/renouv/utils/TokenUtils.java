@@ -14,6 +14,7 @@ import org.apache.log4j.Logger;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.InvalidClaimException;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import com.auth0.jwt.interfaces.Claim;
@@ -23,7 +24,6 @@ import com.auth0.jwt.interfaces.Verification;
 import ci.bourse.renouv.constant.BourseConstant;
 import ci.bourse.renouv.dto.UtilisateurDtoLight;
 import ci.bourse.renouv.exception.TechniqueException;
-import ci.bourse.renouv.rest.AuthentificationResource;
 import ci.bourse.renouv.securite.ProfilEnum;
 
 /**
@@ -33,7 +33,7 @@ import ci.bourse.renouv.securite.ProfilEnum;
  */
 public class TokenUtils {
 
-	private static final Logger LOGGER = Logger.getLogger(AuthentificationResource.class);
+	private static final Logger LOGGER = Logger.getLogger(TokenUtils.class);
 
 	public TokenUtils() {
 	}
@@ -70,9 +70,9 @@ public class TokenUtils {
 	/**
 	 * @param token
 	 * @return
-	 * @throws TechniqueException
+	 * @throws Exception
 	 */
-	public static UtilisateurDtoLight verifierToken(final String token) throws TechniqueException {
+	public static UtilisateurDtoLight verifierToken(final String token) throws Exception {
 		try {
 			LOGGER.debug("------------Début vérification du jeton: " + token);
 
@@ -92,7 +92,7 @@ public class TokenUtils {
 
 			// Valider validité
 			validerExpiration(jwt.getExpiresAt());
-			
+
 			final Map<String, Claim> mapClaim = jwt.getClaims();
 			final UtilisateurDtoLight user = new UtilisateurDtoLight();
 
@@ -123,7 +123,12 @@ public class TokenUtils {
 		} catch (final JWTVerificationException | IllegalArgumentException
 				| UnsupportedEncodingException e) {
 			LOGGER.error("Erreur lors de la vérification du token: " + token, e);
+
+			if (e instanceof InvalidClaimException) {
+				throw e;
+			}
 			throw new TechniqueException("Erreur lors de la vérification du token du jeton d'authentification.", e);
+
 		}
 	}
 

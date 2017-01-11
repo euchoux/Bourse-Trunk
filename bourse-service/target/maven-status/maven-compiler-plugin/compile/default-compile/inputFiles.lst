@@ -19,6 +19,7 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/EleveParentDto.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Niveau.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/RenouvellementDaoImpl.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/service/ProfilService.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/BoursierDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/FiliationDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/service/PaysService.java
@@ -38,6 +39,7 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/model/Lien.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/service/impl/SexeServiceImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/NiveauDaoImpl.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/service/impl/ProfilServiceImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/EleveParentDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/LienDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/App.java

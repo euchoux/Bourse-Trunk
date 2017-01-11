@@ -1,7 +1,11 @@
 package ci.bourse.renouv.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -30,5 +34,18 @@ public class PaysServiceImpl extends AbstractService implements PaysService {
 
 	}
 
+	@Override
+	public List<PaysDto> findAllPays() {
+
+		final List<PaysDto> res = new ArrayList<PaysDto>();
+
+		final List<Pays> listPays = paysDao.findAll();
+		if (!CollectionUtils.isEmpty(listPays)) {
+			for (final Pays pays : listPays) {
+				res.add(getMapper().map(pays, PaysDto.class));
+			}
+		}
+		return res;
+	}
 
 }

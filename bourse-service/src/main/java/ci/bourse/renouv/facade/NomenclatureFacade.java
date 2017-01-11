@@ -1,6 +1,7 @@
 package ci.bourse.renouv.facade;
 
 import java.io.Serializable;
+import java.util.List;
 
 import ci.bourse.renouv.dto.PaysDto;
 import ci.bourse.renouv.dto.ProfilDto;
@@ -32,6 +33,25 @@ public interface NomenclatureFacade extends Serializable {
 	 */
 	ProfilDto trouverProfilParCode(String codeProfil);
 
+	/**
+	 * Charge la liste de tous les sexes.
+	 * 
+	 * @return
+	 */
+	List<SexeDto> findAllSexe();
 
+	/**
+	 * Charge la liste de tous le profils.
+	 * 
+	 * @return
+	 */
+	List<ProfilDto> findAllProfil();
+
+	/**
+	 * Charge la liste de tous les pays.
+	 * 
+	 * @return
+	 */
+	List<PaysDto> findAllPays();
 
 }

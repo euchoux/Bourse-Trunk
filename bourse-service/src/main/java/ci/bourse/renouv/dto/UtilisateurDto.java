@@ -1,6 +1,7 @@
 package ci.bourse.renouv.dto;
 
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Set;
 
@@ -32,6 +33,14 @@ public class UtilisateurDto implements Serializable {
 	private ProfilDto profil;
 
 	private Set<PaysDto> paysGestion;
+
+	private Timestamp dateDerniereConnexion;
+
+	private Integer nbTentatifsRestant;
+
+	private boolean compteBloque;
+
+	private boolean supprime;
 
 	public UtilisateurDto() {
 		super();
@@ -198,6 +207,66 @@ public class UtilisateurDto implements Serializable {
 	 */
 	public void setPaysGestion(final Set<PaysDto> paysGestionDto) {
 		this.paysGestion = paysGestionDto;
+	}
+
+	/**
+	 * @return the dateDerniereConnexion
+	 */
+	public Timestamp getDateDerniereConnexion() {
+		return dateDerniereConnexion;
+	}
+
+	/**
+	 * @param dateDerniereConnexion
+	 *            the dateDerniereConnexion to set
+	 */
+	public void setDateDerniereConnexion(final Timestamp dateDerniereConnexion) {
+		this.dateDerniereConnexion = dateDerniereConnexion;
+	}
+
+	/**
+	 * @return the nbTentatifsRestant
+	 */
+	public Integer getNbTentatifsRestant() {
+		return nbTentatifsRestant;
+	}
+
+	/**
+	 * @param nbTentatifsRestant
+	 *            the nbTentatifsRestant to set
+	 */
+	public void setNbTentatifsRestant(final Integer nbTentatifsRestant) {
+		this.nbTentatifsRestant = nbTentatifsRestant;
+	}
+
+	/**
+	 * @return the compteBloque
+	 */
+	public boolean isCompteBloque() {
+		return compteBloque;
+	}
+
+	/**
+	 * @param compteBloque
+	 *            the compteBloque to set
+	 */
+	public void setCompteBloque(final boolean compteBloque) {
+		this.compteBloque = compteBloque;
+	}
+
+	/**
+	 * @return the supprime
+	 */
+	public boolean isSupprime() {
+		return supprime;
+	}
+
+	/**
+	 * @param supprime
+	 *            the supprime to set
+	 */
+	public void setSupprime(final boolean supprime) {
+		this.supprime = supprime;
 	}
 
 	/*

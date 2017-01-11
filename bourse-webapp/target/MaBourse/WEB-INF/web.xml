@@ -26,6 +26,8 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
+	
+
 	<!-- Servlet permettant d'exposer l'API REST -->
 	<servlet>
 		<servlet-name>jersey-spring</servlet-name>

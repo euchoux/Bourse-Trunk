@@ -1,13 +1,9 @@
 package ci.bourse.renouv.utils;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-
 import org.apache.commons.lang3.Validate;
-import org.springframework.util.Base64Utils;
+import org.springframework.security.authentication.encoding.Md5PasswordEncoder;
 
 import ci.bourse.renouv.constant.BourseConstant;
-import ci.bourse.renouv.exception.MetierException;
 
 /**
  * Utilitaire de gestion du mot de passe.
@@ -28,32 +24,36 @@ public class PasswordUtils {
 	 * </pre>
 	 * 
 	 * @param message
+	 * @param mdp
 	 * @return
 	 */
-	public static String hacherMessageSHA256(String message)
+	public static String hacherMessageSHA256(final String login, final String mdp)
     {
-        // Contrôle du paramètre
-        Validate.notEmpty(message);
+		// Contrôle des paramètres
+		Validate.notEmpty(login);
+		Validate.notEmpty(login);
 
-        MessageDigest md;
-        // ajout du sel pour le hashage
-        message = message + BourseConstant.SEL_MPS;
-        byte[] result = null;
-        try
-        {
-            // récupération d'une instance d'un objet Mac
-			md = MessageDigest.getInstance(BourseConstant.ALGO_MDP);
-            // affectation du message a hacher
-            md.update(message.getBytes());
-            // hachage
-            result = md.digest();
-			return Base64Utils.encodeToString(result);
-        }
-		catch (final NoSuchAlgorithmException e)
-        {
-			new MetierException("Erreur de conversion du mot de passe");
-        }
-		return null;
+		final Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+		return md5.encodePassword(login + mdp, BourseConstant.SEL_MPS);
     }
 	
+	/**
+	 * Permet de vérifier si le mot de passe est valide.
+	 * 
+	 * @param hashPassword
+	 *            le hash du mot de passe stocké
+	 * @param loginPasswordAVerifier
+	 *            la combinaison login+mot de passe à vérifier
+	 * @return
+	 */
+	public static boolean isPasswordValid(final String hashPassword, final String loginPasswordAVerifier)
+    {
+		// Contrôle des paramètres
+		Validate.notEmpty(hashPassword);
+		Validate.notEmpty(loginPasswordAVerifier);
+
+		final Md5PasswordEncoder md5 = new Md5PasswordEncoder();
+		return md5.isPasswordValid(hashPassword, loginPasswordAVerifier, BourseConstant.SEL_MPS);
+    }
+
 }

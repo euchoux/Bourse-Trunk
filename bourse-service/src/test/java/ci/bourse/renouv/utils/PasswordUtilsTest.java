@@ -30,6 +30,10 @@ public class PasswordUtilsTest extends TestCase {
 	 */
 	public void testHacherMessageSHA256() {
 		
-		assertEquals("BcatOYyzmT8tu3npQodIRQykUobVvAQ9UoFJxdhx1cQ=", PasswordUtils.hacherMessageSHA256("motDePasse"));
+		assertEquals("bcaed298a3779a4488a5137abb6b5faa",
+				PasswordUtils.hacherMessageSHA256("login", "motDePasse"));
+
+		assertTrue(PasswordUtils.isPasswordValid("bcaed298a3779a4488a5137abb6b5faa", "login" + "motDePasse"));
+
 	}
 }

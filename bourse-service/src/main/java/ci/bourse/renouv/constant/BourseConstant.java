@@ -13,7 +13,7 @@ public final class BourseConstant {
 	/**
 	 * Sel de hashage permettant de brouiller la découverte du mot de passe.
 	 */
-	public static final String SEL_MPS = "&gh(dgg02";
+	public static final String SEL_MPS = "TH$&gh(dgg02W<";
 
 	/**
 	 * Algorithme utilisé pour hasher le mot de passe.
@@ -49,5 +49,7 @@ public final class BourseConstant {
 	public static final String CLAIM_NOM = "nom";
 	public static final String CLAIM_PRENOMS = "prenoms";
 	public static final String CLAIM_PROFIL = "profil";
+
+	public static final Integer NOMBRE_CONNEXION_MAX = 5;
 
 }

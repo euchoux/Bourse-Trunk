@@ -1,7 +1,11 @@
 package ci.bourse.renouv.service.impl;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.Resource;
 
+import org.apache.commons.collections.CollectionUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -29,5 +33,18 @@ public class ProfilServiceImpl extends AbstractService implements ProfilService 
 		return res;
 	}
 
+	@Override
+	public List<ProfilDto> findAllProfil() {
+
+		final List<ProfilDto> res = new ArrayList<ProfilDto>();
+
+		final List<Profil> listProfil = profilDao.findAll();
+		if (!CollectionUtils.isEmpty(listProfil)) {
+			for (final Profil profil : listProfil) {
+				res.add(getMapper().map(profil, ProfilDto.class));
+			}
+		}
+		return res;
+	}
 
 }

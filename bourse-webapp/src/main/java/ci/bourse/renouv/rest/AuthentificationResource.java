@@ -1,5 +1,8 @@
 package ci.bourse.renouv.rest;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
@@ -9,7 +12,6 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang3.Validate;
-import org.apache.log4j.Logger;
 import org.codehaus.jettison.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -31,8 +33,6 @@ import ci.bourse.renouv.utils.TokenUtils;
 @Component
 @Path("/security")
 public class AuthentificationResource {
-
-	private static final Logger LOGGER = Logger.getLogger(AuthentificationResource.class);
 
 	public static final String CHARSET_UTF8 = "UTF-8";
 	public static final String CHARSET_UTF8_PROPERTY = "; charset=" + CHARSET_UTF8;
@@ -67,7 +67,8 @@ public class AuthentificationResource {
 			Validate.notBlank(password);
 
 			// Authenticate the user using the credentials provided
-			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(login, password);
+			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(login, password,
+					new Timestamp(new Date().getTime()));
 
 			// Issue a token for the user
 			final String token = TokenUtils.issueToken(login, user);

@@ -1,5 +1,6 @@
 package ci.bourse.renouv.model;
 
+import java.sql.Timestamp;
 import java.util.Date;
 import java.util.Set;
 
@@ -65,6 +66,18 @@ public class Utilisateur extends AbstractData<Integer> {
 	@JoinTable(name = "Utilisateur_Pays",
 			joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "pays_id"))
 	private Set<Pays> paysGestion;
+
+	@Column(name = "us_date_derniere_connexion")
+	private Timestamp dateDerniereConnexion;
+
+	@Column(name = "us_nombre_tentatifs")
+	private Integer nbTentatifsRestant;
+
+	@Column(name = "us_compte_bloque")
+	private boolean compteBloque;
+
+	@Column(name = "us_supprime")
+	private boolean supprime;
 
 	public Utilisateur() {
 		super();
@@ -231,6 +244,66 @@ public class Utilisateur extends AbstractData<Integer> {
 	 */
 	public void setPaysGestion(final Set<Pays> paysGestion) {
 		this.paysGestion = paysGestion;
+	}
+
+	/**
+	 * @return the dateDerniereConnexion
+	 */
+	public Timestamp getDateDerniereConnexion() {
+		return dateDerniereConnexion;
+	}
+
+	/**
+	 * @param dateDerniereConnexion
+	 *            the dateDerniereConnexion to set
+	 */
+	public void setDateDerniereConnexion(final Timestamp dateDerniereConnexion) {
+		this.dateDerniereConnexion = dateDerniereConnexion;
+	}
+
+	/**
+	 * @return the nbTentatifsRestant
+	 */
+	public Integer getNbTentatifsRestant() {
+		return nbTentatifsRestant;
+	}
+
+	/**
+	 * @param nbTentatifsRestant
+	 *            the nbTentatifsRestant to set
+	 */
+	public void setNbTentatifsRestant(final Integer nbTentatifsRestant) {
+		this.nbTentatifsRestant = nbTentatifsRestant;
+	}
+
+	/**
+	 * @return the compteBloque
+	 */
+	public boolean isCompteBloque() {
+		return compteBloque;
+	}
+
+	/**
+	 * @param compteBloque
+	 *            the compteBloque to set
+	 */
+	public void setCompteBloque(final boolean compteBloque) {
+		this.compteBloque = compteBloque;
+	}
+
+	/**
+	 * @return the supprime
+	 */
+	public boolean isSupprime() {
+		return supprime;
+	}
+
+	/**
+	 * @param supprime
+	 *            the supprime to set
+	 */
+	public void setSupprime(final boolean supprime) {
+		this.supprime = supprime;
 	}
 
 	/*

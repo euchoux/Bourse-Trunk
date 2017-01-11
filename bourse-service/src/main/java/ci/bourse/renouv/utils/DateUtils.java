@@ -13,7 +13,7 @@ import ci.bourse.renouv.exception.MetierException;
  */
 public class DateUtils {
 
-	public static final String format = "dd-MM-yyyy";
+	public static final String formatClassique = "dd-MM-yyyy";
 
 	public DateUtils() {
 	}
@@ -25,7 +25,7 @@ public class DateUtils {
 	 * @return
 	 * @throws MetierException
 	 */
-	public static Date fromString(final String string) throws MetierException {
+	public static Date fromString(final String string, final String format) throws MetierException {
 		final SimpleDateFormat simpleDateFormat = new SimpleDateFormat(format);
 		try {
 			return simpleDateFormat.parse(string);
@@ -40,7 +40,7 @@ public class DateUtils {
 	 * @param t
 	 * @return
 	 */
-	public static String toString(final Date t) {
+	public static String toString(final Date t, final String format) {
 		return new SimpleDateFormat(format).format(t);
 	}
 }
