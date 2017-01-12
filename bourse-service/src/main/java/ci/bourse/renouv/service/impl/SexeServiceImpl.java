@@ -21,7 +21,7 @@ public class SexeServiceImpl extends AbstractService implements SexeService {
 	private static final long serialVersionUID = -2778854087789081735L;
 
 	@Resource
-	SexeDao sexeDao;
+	private SexeDao sexeDao;
 
 	@Override
 	public SexeDto trouverSexeParId(final Integer sexeId) {

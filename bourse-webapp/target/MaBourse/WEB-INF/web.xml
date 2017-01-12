@@ -3,13 +3,15 @@
  "http://java.sun.com/dtd/web-app_2_3.dtd" >
 <web-app>
 
-	<display-name>Gestion des bourses Hors CI</display-name>
-
+    <display-name>Gestion des bourses Hors CI</display-name>
+    
 	<!-- Spring Context Configuration' s Path definition -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>/WEB-INF/classes/application-context.xml</param-value>
 	</context-param>
+
+
 
 	<!-- Spring Security filter -->
 	<filter>
@@ -26,7 +28,7 @@
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
 
-	
+
 
 	<!-- Servlet permettant d'exposer l'API REST -->
 	<servlet>
@@ -43,5 +45,19 @@
 		<servlet-name>jersey-spring</servlet-name>
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
+	
+	<security-constraint>
+		<display-name>Accès sécurisé -- Gestion des bourses Hors CI</display-name>
+
+		<web-resource-collection>
+			<web-resource-name>Ressource protégée</web-resource-name>
+			<url-pattern>/rest/*</url-pattern>
+			<http-method>POST</http-method>
+		</web-resource-collection>
+
+		<user-data-constraint>
+			<transport-guarantee>CONFIDENTIAL</transport-guarantee>
+		</user-data-constraint>
+	</security-constraint>
 
 </web-app>

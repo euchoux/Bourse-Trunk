@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class AbstractFacade {
 
 	@Autowired
-	ApplicationContext applicationContext;
+	private ApplicationContext applicationContext;
 
 	public AbstractFacade() {
 	}

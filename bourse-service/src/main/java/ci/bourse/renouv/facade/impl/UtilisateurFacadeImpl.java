@@ -26,7 +26,7 @@ public class UtilisateurFacadeImpl extends AbstractFacade implements Utilisateur
 	private static final long serialVersionUID = -2778854087789081735L;
 
 	@Resource
-	UtilisateurService utilisateurService;
+	private UtilisateurService utilisateurService;
 
 	@Override
 	@Secured({ ProfilConstant.ROLE_ADMIN_BOURSE, ProfilConstant.ROLE_ADMIN_MINISTERE })

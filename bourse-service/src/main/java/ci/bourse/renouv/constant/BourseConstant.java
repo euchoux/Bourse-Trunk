@@ -52,4 +52,13 @@ public final class BourseConstant {
 
 	public static final Integer NOMBRE_CONNEXION_MAX = 5;
 
+	/**
+	 * Nombre d'années pour lesquelles on souhaite afficher le montant de bourse
+	 * sur le tableau de bord.
+	 */
+	public static final Integer NOMBRE_ANNEE_MAX = 5;
+
+	public static final Integer ID_STATUT_REFUSEE = 2;
+	public static final Integer ID_STATUT_SUSPENDU = 5;
+
 }

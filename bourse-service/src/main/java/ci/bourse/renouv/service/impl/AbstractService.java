@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class AbstractService {
 
 	@Autowired
-	ApplicationContext applicationContext;
+	private ApplicationContext applicationContext;
 
 	public AbstractService() {
 	}

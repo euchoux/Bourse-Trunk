@@ -23,13 +23,13 @@ public class NomenclatureFacadeImpl implements NomenclatureFacade {
 	private static final long serialVersionUID = -2778854087789081735L;
 
 	@Resource
-	PaysService paysService;
+	private PaysService paysService;
 
 	@Resource
-	SexeService sexeService;
+	private SexeService sexeService;
 
 	@Resource
-	ProfilService profilService;
+	private ProfilService profilService;
 
 	@Override
 	public PaysDto trouverPaysParId(final Integer paysId) {

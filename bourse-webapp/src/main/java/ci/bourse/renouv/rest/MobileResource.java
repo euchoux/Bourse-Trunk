@@ -22,9 +22,6 @@ public class MobileResource {
 
 	private static final Logger LOGGER = Logger.getLogger(MobileResource.class);
 
-	public static final String CHARSET_UTF8 = "UTF-8";
-	public static final String CHARSET_UTF8_PROPERTY = "; charset=" + CHARSET_UTF8;
-
 	public MobileResource() {
 	}
 

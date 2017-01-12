@@ -21,7 +21,7 @@ public class ProfilServiceImpl extends AbstractService implements ProfilService 
 	private static final long serialVersionUID = -2778854087789081735L;
 
 	@Resource
-	ProfilDao profilDao;
+	private ProfilDao profilDao;
 
 	@Override
 	public ProfilDto trouverProfilParCode(final String codeProfil) {

@@ -24,7 +24,7 @@ public class UtilisateurServiceImpl extends AbstractService implements Utilisate
 	private static final long serialVersionUID = -2778854087789081735L;
 
 	@Resource
-	UtilisateurDao utilisateurDao;
+	private UtilisateurDao utilisateurDao;
 
 	/**
 	 * @throws MetierException

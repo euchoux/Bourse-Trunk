@@ -21,7 +21,7 @@ public class PaysServiceImpl extends AbstractService implements PaysService {
 	private static final long serialVersionUID = -2778854087789081735L;
 
 	@Resource
-	PaysDao paysDao;
+	private PaysDao paysDao;
 
 	@Override
 	public PaysDto trouverPaysParId(final Integer paysId) {

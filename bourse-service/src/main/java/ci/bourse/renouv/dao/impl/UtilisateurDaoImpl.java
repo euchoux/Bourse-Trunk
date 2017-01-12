@@ -1,6 +1,5 @@
 package ci.bourse.renouv.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -51,8 +50,6 @@ public class UtilisateurDaoImpl extends AbstractHibernateRepository<Utilisateur,
 	@Override
 	public List<Utilisateur> findAllUtilisateur() {
 
-		List<Utilisateur> res;
-
 		final CriteriaBuilder builder = getSession().getCriteriaBuilder();
 
 		final CriteriaQuery<Utilisateur> criteria = builder.createQuery(Utilisateur.class);
@@ -60,13 +57,7 @@ public class UtilisateurDaoImpl extends AbstractHibernateRepository<Utilisateur,
 		criteria.select(root);
 		criteria.where(builder.isFalse(root.get("supprime")));
 
-		try {
-			res = getSession().createQuery(criteria).getResultList();
-		} catch (final NoResultException e) {
-			res = new ArrayList<Utilisateur>();
-		}
-
-		return res;
+		return getSession().createQuery(criteria).getResultList();
 	}
 
 }

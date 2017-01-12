@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<Pays pays_id="1" py_code="AL" py_libelle="ALBANIE"/>
+	<Pays pays_id="2" py_code="MA" py_libelle="MAROC"/>
+	<Pays pays_id="3" py_code="CI" py_libelle="COTE DIVOIRE"/>
+	<Pays pays_id="4" py_code="FR" py_libelle="FRANCE"/>
+</dataset>

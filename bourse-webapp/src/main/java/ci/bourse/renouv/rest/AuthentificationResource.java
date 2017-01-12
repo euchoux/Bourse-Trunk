@@ -4,7 +4,6 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -13,6 +12,7 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang3.Validate;
 import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -34,9 +34,6 @@ import ci.bourse.renouv.utils.TokenUtils;
 @Path("/security")
 public class AuthentificationResource {
 
-	public static final String CHARSET_UTF8 = "UTF-8";
-	public static final String CHARSET_UTF8_PROPERTY = "; charset=" + CHARSET_UTF8;
-
 	@Autowired
 	private UtilisateurFacade utilisateurFacade;
 
@@ -56,10 +53,16 @@ public class AuthentificationResource {
 	 */
 	@POST
 	@Path("/authenticate")
-	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response authenticateUser(@FormParam("login") final String login,
-			@FormParam("password") final String password) throws JsonProcessingException {
+	public Response authenticateUser(final String json)
+			throws JsonProcessingException, JSONException {
+
+		final JSONObject jsonObj = new JSONObject(json);
+
+		final String login = jsonObj.getString("login");
+		final String password = jsonObj.getString("password");
+
 		final ObjectMapper jsonMapper = new ObjectMapper();
 		try {
 
@@ -67,7 +70,8 @@ public class AuthentificationResource {
 			Validate.notBlank(password);
 
 			// Authenticate the user using the credentials provided
-			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(login, password,
+			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(
+					login, password,
 					new Timestamp(new Date().getTime()));
 
 			// Issue a token for the user
