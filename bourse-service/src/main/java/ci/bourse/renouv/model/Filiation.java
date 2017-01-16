@@ -22,7 +22,7 @@ public class Filiation extends AbstractData<Integer> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "parent_id", nullable = false)
+	@Column(name = "parent_id", nullable = false, updatable = false)
 	private Integer id;
 
 	@Column(name = "pr_nom", nullable = false, length = ModelConstant.LENGTH_60)

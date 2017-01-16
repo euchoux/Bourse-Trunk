@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<Pays pays_id="1" py_code="AL" py_libelle="ALBANIE"/>
-	<Pays pays_id="2" py_code="MA" py_libelle="MAROC"/>
-	<Pays pays_id="3" py_code="CI" py_libelle="COTE DIVOIRE"/>
-	<Pays pays_id="4" py_code="FR" py_libelle="FRANCE"/>
+	<Pays pays_id="101" py_code="AL" py_libelle="ALBANIE"/>
+	<Pays pays_id="102" py_code="MA" py_libelle="MAROC"/>
+	<Pays pays_id="103" py_code="CI" py_libelle="COTE DIVOIRE"/>
+	<Pays pays_id="104" py_code="FR" py_libelle="FRANCE"/>
 </dataset>

@@ -1,0 +1,9 @@
+<dataset>
+	<Bourse bourse_id="101" bo_numero="VALAAAZZ" bo_duree="2" bo_montant="3500000" serie_id="103" pays_id="101" statut_id="101"/>
+	<Bourse bourse_id="102" bo_numero="REFZZEEE" bo_duree="5" bo_montant="3500000" serie_id="105" pays_id="101" statut_id="101"/>
+	<Bourse bourse_id="103" bo_numero="INCEEERR" bo_duree="5" bo_montant="3500000" serie_id="101" pays_id="101" statut_id="105"/>
+	<Bourse bourse_id="104" bo_numero="ENCCSDDD" bo_duree="5" bo_montant="2300000" serie_id="102" pays_id="103" statut_id="101"/>
+	<Bourse bourse_id="105" bo_numero="SUSHJGDD" bo_duree="4" bo_montant="1300500" serie_id="101" pays_id="102" statut_id="101"/>
+	<Bourse bourse_id="106" bo_numero="DOCADAFA" bo_duree="5" bo_montant="3700000" serie_id="103" pays_id="102" statut_id="101"/>
+	<Bourse bourse_id="107" bo_numero="ENADAZDF" bo_duree="3" bo_montant="4000000" serie_id="106" pays_id="102" statut_id="101"/>
+</dataset>

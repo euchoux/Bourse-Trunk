@@ -20,7 +20,7 @@ public class Lien extends AbstractData<Integer> {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "lien_id", nullable = false)
+	@Column(name = "lien_id", nullable = false, updatable = false)
     private Integer id;
 
 	@Column(name = "li_code", length = ModelConstant.LENGTH_5)

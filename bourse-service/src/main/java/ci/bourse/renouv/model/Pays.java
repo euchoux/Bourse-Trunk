@@ -20,7 +20,7 @@ public class Pays extends AbstractData<Integer> {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "pays_id", nullable = false)
+	@Column(name = "pays_id", nullable = false, updatable = false)
     private Integer id;
 
 	@Column(name = "py_code", length = ModelConstant.LENGTH_5)

@@ -22,7 +22,7 @@ public class HistoScolarite extends AbstractData<Integer> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "histo_id", nullable = false)
+	@Column(name = "histo_id", nullable = false, updatable = false)
 	private Integer id;
 
 	@Column(name = "hi_annee_scolaire", length = ModelConstant.LENGTH_4)

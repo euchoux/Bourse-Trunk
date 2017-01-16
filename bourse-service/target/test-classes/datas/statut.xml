@@ -1,0 +1,9 @@
+<dataset>
+	<Etat statut_id="101" st_code="VAL" st_libelle="Validé"/>
+	<Etat statut_id="102" st_code="REF" st_libelle="Refusé"/>
+	<Etat statut_id="103" st_code="INC" st_libelle="Incomplet"/>
+	<Etat statut_id="104" st_code="ENC" st_libelle="En cours de traitement"/>
+	<Etat statut_id="105" st_code="SUS" st_libelle="Suspendu"/>
+	<Etat statut_id="106" st_code="DOC" st_libelle="Documents manquants"/>
+	<Etat statut_id="107" st_code="ENA" st_libelle="En attente"/>
+</dataset>

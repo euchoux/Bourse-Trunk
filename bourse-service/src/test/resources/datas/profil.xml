@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<Profil profil_id="1" pr_code="GAM" pr_libelle="ROLE_GES_AMBASSADE"/>
-	<Profil profil_id="2" pr_code="GBO" pr_libelle="ROLE_GES_BOURSE"/>
-	<Profil profil_id="3" pr_code="ABO" pr_libelle="ROLE_ADMIN_BOURSE"/>
-	<Profil profil_id="4" pr_code="GMI" pr_libelle="ROLE_GES_MINISTERE"/>
-	<Profil profil_id="5" pr_code="AMI" pr_libelle="ROLE_ADMIN_MINISTERE"/>
-	<Profil profil_id="6" pr_code="AUT" pr_libelle="ROLE_AUTRE"/>
-	<Profil profil_id="7" pr_code="CON" pr_libelle="ROLE_CONSULTATION"/>
+	<Profil profil_id="101" pr_code="GAM" pr_libelle="ROLE_GES_AMBASSADE"/>
+	<Profil profil_id="102" pr_code="GBO" pr_libelle="ROLE_GES_BOURSE"/>
+	<Profil profil_id="103" pr_code="ABO" pr_libelle="ROLE_ADMIN_BOURSE"/>
+	<Profil profil_id="104" pr_code="GMI" pr_libelle="ROLE_GES_MINISTERE"/>
+	<Profil profil_id="105" pr_code="AMI" pr_libelle="ROLE_ADMIN_MINISTERE"/>
+	<Profil profil_id="106" pr_code="AUT" pr_libelle="ROLE_AUTRE"/>
+	<Profil profil_id="107" pr_code="CON" pr_libelle="ROLE_CONSULTATION"/>
 </dataset>

@@ -19,4 +19,11 @@ public interface BoursierService extends Serializable {
 	 * @return
 	 */
 	Map<String, Integer> trouverNombreBoursierParPays();
+
+	/**
+	 * Trouve le nombre total de boursier ayant une bourse active.
+	 * 
+	 * @return
+	 */
+	Integer trouverNombreTotalBoursier();
 }

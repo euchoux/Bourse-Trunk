@@ -18,13 +18,13 @@
 	</bean>
 
 	<tx:annotation-driven transaction-manager="transactionManager" />
-	
+
 	<bean id="transactionManager"
 		class="org.springframework.orm.hibernate5.HibernateTransactionManager">
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
-	 <bean id="org.dozer.mapper" class="org.dozer.DozerBeanMapper"/>
+	<bean id="org.dozer.mapper" class="org.dozer.DozerBeanMapper" />
 
 	<!-- Hibernate session factory -->
 	<bean id="sessionFactory"
@@ -36,7 +36,7 @@
 
 		<property name="hibernateProperties">
 			<props>
-				<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
 				<prop key="hibernate.show_sql">true</prop>
 				<prop key="hibernate.id.new_generator_mappings">true</prop>
 				<prop key="hibernate.connection.autocommit">false</prop>
@@ -52,6 +52,18 @@
 			</list>
 		</property>
 
+	</bean>
+
+	<bean id="hsqldbDataTypeFactory" class="org.dbunit.ext.hsqldb.HsqldbDataTypeFactory" />
+
+	<bean id="dbUnitDatabaseConfig" class="com.github.springtestdbunit.bean.DatabaseConfigBean">
+		<property name="datatypeFactory" ref="hsqldbDataTypeFactory" />
+	</bean>
+
+	<bean id="dbUnitDatabaseConnection"
+		class="com.github.springtestdbunit.bean.DatabaseDataSourceConnectionFactoryBean">
+		<property name="databaseConfig" ref="dbUnitDatabaseConfig" />
+		<property name="dataSource" ref="dataSource" />
 	</bean>
 
 </beans>

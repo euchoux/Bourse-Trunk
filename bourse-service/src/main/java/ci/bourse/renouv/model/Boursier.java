@@ -24,7 +24,7 @@ public class Boursier extends AbstractData<Integer> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "boursier_id", nullable = false)
+	@Column(name = "boursier_id", nullable = false, updatable = false)
 	private Integer id;
 
 	@Column(name = "br_nom", nullable = false, length = ModelConstant.LENGTH_60)

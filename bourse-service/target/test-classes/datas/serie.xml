@@ -1,0 +1,8 @@
+<dataset>
+	<Serie serie_id="101" se_code="A1" se_libelle="Lettres - Mathématiques"/>
+	<Serie serie_id="102" se_code="A2" se_libelle="Lettres - Langues"/>
+	<Serie serie_id="103" se_code="B" se_libelle="Economique social"/>
+	<Serie serie_id="104" se_code="C" se_libelle="Mathématiques Sciences Physique"/>
+	<Serie serie_id="105" se_code="D" se_libelle="Mathématiques Sciences de la Nature"/>
+	<Serie serie_id="106" se_code="E" se_libelle="Mathématiques technologies"/>
+</dataset>

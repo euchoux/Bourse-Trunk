@@ -1,0 +1,6 @@
+ci/bourse/renouv/utils/DateUtilsTest.class
+ci/bourse/renouv/facade/UtilisateurFacadeTest.class
+ci/bourse/renouv/facade/DashboardFacadeTest.class
+ci/bourse/renouv/utils/PasswordUtilsTest.class
+ci/bourse/renouv/facade/NomenclatureFacadeTest.class
+ci/bourse/renouv/AbstractTest.class

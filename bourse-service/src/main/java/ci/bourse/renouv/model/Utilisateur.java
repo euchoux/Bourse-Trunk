@@ -25,11 +25,11 @@ import ci.bourse.renouv.constant.ModelConstant;
 @Table(name = "Utilisateur")
 public class Utilisateur extends AbstractData<Integer> {
 
-	private static final long serialVersionUID = -7005383571444763376L;
+	private static final long serialVersionUID = -1866970002980070276L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "user_id", nullable = false)
+	@Column(name = "user_id", nullable = false, updatable = false)
 	private Integer id;
 
 	@Column(name = "us_nom", nullable = false, length = ModelConstant.LENGTH_60)
@@ -38,13 +38,14 @@ public class Utilisateur extends AbstractData<Integer> {
 	@Column(name = "us_prenoms", nullable = false, length = ModelConstant.LENGTH_300)
 	private String prenoms;
 
-	@Column(name = "us_login", nullable = false, length = ModelConstant.LENGTH_25)
+	@Column(name = "us_login", nullable = false, length = ModelConstant.LENGTH_25,
+			updatable = false)
 	private String login;
 
 	@Column(name = "us_date_naissance")
 	private Date dateNaissance;
 
-	@Column(name = "us_mdp")
+	@Column(name = "us_mdp", nullable = false, length = ModelConstant.LENGTH_500)
 	private String password;
 
 	@Column(name = "us_telephone", length = ModelConstant.LENGTH_25)

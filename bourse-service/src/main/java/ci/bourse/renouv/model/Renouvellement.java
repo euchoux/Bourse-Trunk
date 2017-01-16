@@ -25,7 +25,7 @@ public class Renouvellement extends AbstractData<Integer> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "revouv_id", nullable = false)
+	@Column(name = "revouv_id", nullable = false, updatable = false)
 	private Integer id;
 
 	@Column(name = "re_date_soumission", nullable = false)

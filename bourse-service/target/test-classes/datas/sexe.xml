@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <dataset>
-	<Sexe sexe_id="1" se_code="M" se_libelle="Masculin"/>
-	<Sexe sexe_id="2" se_code="F" se_libelle="Feminin"/>
+	<Sexe sexe_id="101" se_code="M" se_libelle="Masculin"/>
+	<Sexe sexe_id="102" se_code="F" se_libelle="Feminin"/>
 </dataset>

@@ -32,7 +32,8 @@ public class BoursierServiceImpl extends AbstractService implements BoursierServ
 		final Integer anneeCourante = cal.get(Calendar.YEAR);
 
 		for (Integer i = 0; i < nbAnneeMax; i++) {
-			final Double montant = boursierDao.trouverMontantBoursePour(anneeCourante);
+			final Double montant = boursierDao
+					.trouverMontantBoursePour(anneeCourante - i);
 			res.put(String.valueOf(anneeCourante - i), montant);
 		}
 
@@ -42,6 +43,11 @@ public class BoursierServiceImpl extends AbstractService implements BoursierServ
 	@Override
 	public Map<String, Integer> trouverNombreBoursierParPays() {
 		return bourseDao.trouverNombreBoursierParPays();
+	}
+
+	@Override
+	public Integer trouverNombreTotalBoursier(){
+		return boursierDao.trouverNombreTotalBoursier();
 	}
 
 }

@@ -56,7 +56,7 @@ public class AuthentificationResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response authenticateUser(final String json)
-			throws JsonProcessingException, JSONException {
+			throws JsonProcessingException, JSONException{
 
 		final JSONObject jsonObj = new JSONObject(json);
 
@@ -70,21 +70,21 @@ public class AuthentificationResource {
 			Validate.notBlank(password);
 
 			// Authenticate the user using the credentials provided
-			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(
-					login, password,
-					new Timestamp(new Date().getTime()));
+			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(login,
+					password, new Timestamp(new Date().getTime()));
 
 			// Issue a token for the user
 			final String token = TokenUtils.issueToken(login, user);
 
+			// Ajout du jeton dans la reponse.
+			user.setToken(BourseConstant.AUTHENTICATION_SCHEME + token);
+
 			// Return the token on the response
-			return Response.ok(jsonMapper.writeValueAsString(user))
-					.header(BourseConstant.AUTHORIZATION_PROPERTY, BourseConstant.AUTHENTICATION_SCHEME + token)
-					.build();
+			return Response.ok(jsonMapper.writeValueAsString(user)).build();
 
 		} catch (final Exception e) {
-			return Response.status(Response.Status.FORBIDDEN).entity(jsonMapper.writeValueAsString(e.getMessage()))
-					.build();
+			return Response.status(Response.Status.FORBIDDEN)
+					.entity(jsonMapper.writeValueAsString(e.getMessage())).build();
 		}
 	}
 }

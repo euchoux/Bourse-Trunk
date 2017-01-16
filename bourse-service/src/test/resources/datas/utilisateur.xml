@@ -1,0 +1,5 @@
+<dataset>
+	<Utilisateur user_id="101" us_nom="VERDIER" us_prenoms="Jacques" us_date_naissance="1980-10-07 00:00:00" us_login="jjverdier" us_mdp="ghfdkjd" us_telephone="07892356" pays_id="103" sexe_id="101" profil_id="103" us_date_derniere_connexion="2017-01-12 15:51:22" us_nombre_tentatifs="5" us_compte_bloque="FALSE" us_supprime="FALSE" />
+	<Utilisateur user_id="102" us_nom="ALAIN" us_prenoms="Jean" us_date_naissance="1988-09-12 00:00:00" us_login="login2" us_mdp="ghfdkjd" us_telephone="07892356" pays_id="102" sexe_id="102" profil_id="102" us_date_derniere_connexion="2017-01-12 15:51:22" us_nombre_tentatifs="5" us_compte_bloque="FALSE" us_supprime="FALSE" />
+	<Utilisateur user_id="103" us_nom="DUBOIS" us_prenoms="Luis" us_date_naissance="1983-03-22 00:00:00" us_login="loginTest" us_mdp="mspToto" us_telephone="07892356" pays_id="101" sexe_id="101" profil_id="105" us_date_derniere_connexion="2017-01-12 15:51:22" us_nombre_tentatifs="5" us_compte_bloque="FALSE" us_supprime="FALSE" />
+</dataset>

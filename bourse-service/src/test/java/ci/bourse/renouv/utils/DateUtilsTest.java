@@ -47,4 +47,19 @@ public class DateUtilsTest extends TestCase {
 		cal.set(1980, 04, 22, 0, 0, 0);
 		assertEquals("22-05-1980", DateUtils.toString(cal.getTime(), DateUtils.formatClassique));
 	}
+
+	public void testBorneMinDate() throws MetierException {
+		final Calendar cal = Calendar.getInstance();
+		cal.clear();
+		cal.set(2017, Calendar.JANUARY, 1, 0, 0);
+		assertEquals(cal.getTime(), DateUtils.borneMinDate(2017));
+	}
+
+	public void testBorneMaxDate() throws MetierException {
+		final Calendar cal = Calendar.getInstance();
+		cal.clear();
+		cal.set(2017, Calendar.DECEMBER, 31, 23, 59);
+		assertEquals(cal.getTime(), DateUtils.borneMaxDate(2017));
+	}
+
 }

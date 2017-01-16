@@ -1,2 +1,6 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/test/java/ci/bourse/renouv/utils/PasswordUtilsTest.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/test/java/ci/bourse/renouv/AbstractTest.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/test/java/ci/bourse/renouv/facade/DashboardFacadeTest.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/test/java/ci/bourse/renouv/facade/NomenclatureFacadeTest.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/test/java/ci/bourse/renouv/facade/UtilisateurFacadeTest.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/test/java/ci/bourse/renouv/utils/DateUtilsTest.java

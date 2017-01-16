@@ -25,7 +25,7 @@ public class FicheConfidentielle extends AbstractData<Integer> {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "fiche_id", nullable = false)
+	@Column(name = "fiche_id", nullable = false, updatable = false)
 	private Integer id;
 
 	@Column(name = "fi_adresse_postale", length = ModelConstant.LENGTH_300)

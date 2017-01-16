@@ -20,7 +20,7 @@ public class Niveau extends AbstractData<Integer> {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "niveau_id", nullable = false)
+	@Column(name = "niveau_id", nullable = false, updatable = false)
     private Integer id;
 
 	@Column(name = "nv_code", length = ModelConstant.LENGTH_10)

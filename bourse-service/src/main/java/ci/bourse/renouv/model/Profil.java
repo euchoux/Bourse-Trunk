@@ -20,7 +20,7 @@ public class Profil extends AbstractData<Integer> {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "profil_id", nullable = false)
+	@Column(name = "profil_id", nullable = false, updatable = false)
     private Integer id;
 
 	@Column(name = "pr_code", length = ModelConstant.LENGTH_25)

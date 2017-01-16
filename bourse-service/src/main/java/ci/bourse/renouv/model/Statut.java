@@ -20,7 +20,7 @@ public class Statut extends AbstractData<Integer> {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "statut_id", nullable = false)
+	@Column(name = "statut_id", nullable = false, updatable = false)
     private Integer id;
 
 	@Column(name = "st_code", length = ModelConstant.LENGTH_5)

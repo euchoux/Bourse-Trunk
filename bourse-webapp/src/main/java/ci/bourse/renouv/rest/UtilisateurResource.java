@@ -1,5 +1,6 @@
 package ci.bourse.renouv.rest;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -11,6 +12,8 @@ import javax.ws.rs.core.Response;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.log4j.Logger;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -77,19 +80,29 @@ public class UtilisateurResource {
 
 	@POST
 	@Path("/creer")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response creerUtilisateur(@QueryParam("nom") final String nom, @QueryParam("prenoms") final String prenoms,
-			@QueryParam("dateNaissance") final String dateNaissance, @QueryParam("login") final String login,
-			@QueryParam("mdp") final String mdp, @QueryParam("telephone") final String telephone,
-			@QueryParam("paysId") final Integer paysId, @QueryParam("sexeId") final Integer sexeId,
-			@QueryParam("codeProfil") final String codeProfil) {
+	public Response creerUtilisateur(final String json) throws JSONException {
+
+		final JSONObject jsonObj = new JSONObject(json);
+
+		final String nom = jsonObj.getString("nom");
+		final String prenoms = jsonObj.getString("prenoms");
+		final String dateNaissance = jsonObj.getString("dateNaissance");
+		final String login = jsonObj.getString("login");
+		final String password = jsonObj.getString("password");
+		final String telephone = jsonObj.getString("telephone");
+		final Integer paysId = jsonObj.getInt("paysId");
+		final Integer sexeId = jsonObj.getInt("sexeId");
+		final String codeProfil = jsonObj.getString("codeProfil");
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("creation utilisateur : " + prenoms + " " + nom);
 		}
 
 		// Vérification des information envoyées.
-		validerInformation(nom, prenoms, dateNaissance, login, mdp, telephone, paysId, sexeId, codeProfil);
+		validerInformation(nom, prenoms, dateNaissance, login, password, telephone,
+				paysId, sexeId, codeProfil);
 
 		final PaysDto pays = nomenclatureFacade.trouverPaysParId(paysId);
 		if (pays == null) {
@@ -106,7 +119,8 @@ public class UtilisateurResource {
 			return Response.status(Response.Status.NOT_FOUND).entity("Le code du profil est inconnu.").build();
 		}
 
-		final UtilisateurDto utilisateur = initialiserUtilisateurDto(nom, prenoms, dateNaissance, login, mdp, telephone,
+		final UtilisateurDto utilisateur = initialiserUtilisateurDto(nom, prenoms,
+				dateNaissance, login, password, telephone,
 				paysId, sexeId, codeProfil, pays, profil, sexe);
 
 		try {
@@ -130,19 +144,30 @@ public class UtilisateurResource {
 
 	@POST
 	@Path("/{userId}/modifier")
+	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
-	public Response modifierUtilisateur(@PathParam("userId") final Integer userId, @QueryParam("nom") final String nom,
-			@QueryParam("prenoms") final String prenoms, @QueryParam("dateNaissance") final String dateNaissance,
-			@QueryParam("login") final String login, @QueryParam("mdp") final String mdp,
-			@QueryParam("telephone") final String telephone, @QueryParam("paysId") final Integer paysId,
-			@QueryParam("sexeId") final Integer sexeId, @QueryParam("codeProfil") final String codeProfil) {
+	public Response modifierUtilisateur(@PathParam("userId") final Integer userId,
+			final String json) throws JSONException {
+
+		final JSONObject jsonObj = new JSONObject(json);
+
+		final String nom = jsonObj.getString("nom");
+		final String prenoms = jsonObj.getString("prenoms");
+		final String dateNaissance = jsonObj.getString("dateNaissance");
+		final String login = jsonObj.getString("login");
+		final String password = jsonObj.getString("password");
+		final String telephone = jsonObj.getString("telephone");
+		final Integer paysId = jsonObj.getInt("paysId");
+		final Integer sexeId = jsonObj.getInt("sexeId");
+		final String codeProfil = jsonObj.getString("codeProfil");
 
 		if (LOGGER.isDebugEnabled()) {
 			LOGGER.debug("modification utilisateur : " + prenoms + " " + nom);
 		}
 
 		// Vérification des information envoyées.
-		validerInformation(nom, prenoms, dateNaissance, login, mdp, telephone, paysId, sexeId, codeProfil);
+		validerInformation(nom, prenoms, dateNaissance, login, password, telephone,
+				paysId, sexeId, codeProfil);
 		Validate.notNull(userId);
 
 		final PaysDto pays = nomenclatureFacade.trouverPaysParId(paysId);
@@ -160,7 +185,8 @@ public class UtilisateurResource {
 			return Response.status(Response.Status.NOT_FOUND).entity("Le code du profil est inconnu.").build();
 		}
 
-		final UtilisateurDto utilisateur = initialiserUtilisateurDto(nom, prenoms, dateNaissance, login, mdp, telephone,
+		final UtilisateurDto utilisateur = initialiserUtilisateurDto(nom, prenoms,
+				dateNaissance, login, password, telephone,
 				paysId, sexeId, codeProfil, pays, profil, sexe);
 
 		utilisateur.setId(userId);

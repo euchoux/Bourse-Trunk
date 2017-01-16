@@ -20,7 +20,7 @@ public class Serie extends AbstractData<Integer> {
 
 	@Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "serie_id", nullable = false)
+	@Column(name = "serie_id", nullable = false, updatable = false)
     private Integer id;
 
 	@Column(name = "se_code", length = ModelConstant.LENGTH_3)

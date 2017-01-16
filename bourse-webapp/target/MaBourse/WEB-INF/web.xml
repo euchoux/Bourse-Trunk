@@ -52,6 +52,7 @@
 		<web-resource-collection>
 			<web-resource-name>Ressource protégée</web-resource-name>
 			<url-pattern>/rest/*</url-pattern>
+			<http-method>GET</http-method>
 			<http-method>POST</http-method>
 		</web-resource-collection>
 

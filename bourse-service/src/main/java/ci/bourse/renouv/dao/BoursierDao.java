@@ -15,4 +15,11 @@ public interface BoursierDao extends DefaultRepository<Boursier, Integer> {
 	 */
 	Double trouverMontantBoursePour(Integer anneeCourante);
 
+	/**
+	 * Trouve le nombre total de boursier ayant une bourse active.
+	 * 
+	 * @return
+	 */
+	Integer trouverNombreTotalBoursier();
+
 }

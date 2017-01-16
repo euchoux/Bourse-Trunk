@@ -19,6 +19,8 @@ public class UtilisateurDtoLight implements Serializable {
 
 	private ProfilEnum userProfil;
 
+	private String token;
+
 	public UtilisateurDtoLight() {
 		super();
 	}
@@ -75,6 +77,21 @@ public class UtilisateurDtoLight implements Serializable {
 	 */
 	public void setUserProfil(final ProfilEnum userProfil) {
 		this.userProfil = userProfil;
+	}
+
+	/**
+	 * @return the token
+	 */
+	public String getToken(){
+		return token;
+	}
+
+	/**
+	 * @param token
+	 *            the token to set
+	 */
+	public void setToken(final String token){
+		this.token = token;
 	}
 
 	/*

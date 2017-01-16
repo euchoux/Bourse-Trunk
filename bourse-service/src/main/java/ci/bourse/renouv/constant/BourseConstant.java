@@ -58,7 +58,7 @@ public final class BourseConstant {
 	 */
 	public static final Integer NOMBRE_ANNEE_MAX = 5;
 
-	public static final Integer ID_STATUT_REFUSEE = 2;
-	public static final Integer ID_STATUT_SUSPENDU = 5;
+	public static final String CODE_STATUT_REFUSEE = "REF";
+	public static final String CODE_STATUT_SUSPENDU = "SUS";
 
 }
