@@ -8,14 +8,17 @@ import javax.annotation.Resource;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
+import ci.bourse.renouv.constant.BourseConstant;
 import ci.bourse.renouv.constant.ProfilConstant;
 import ci.bourse.renouv.dto.UtilisateurDto;
 import ci.bourse.renouv.dto.UtilisateurDtoLight;
 import ci.bourse.renouv.exception.MetierException;
+import ci.bourse.renouv.exception.TechniqueException;
 import ci.bourse.renouv.facade.UtilisateurFacade;
 import ci.bourse.renouv.securite.ProfilEnum;
 import ci.bourse.renouv.service.UtilisateurService;
 import ci.bourse.renouv.utils.PasswordUtils;
+import ci.bourse.renouv.utils.TokenUtils;
 
 /**
  * @author euchoux
@@ -59,7 +62,7 @@ public class UtilisateurFacadeImpl extends AbstractFacade implements Utilisateur
 
 	@Override
 	public UtilisateurDtoLight verifierLoginMdp(final String login, final String password, final Timestamp dateDuJour)
-			throws MetierException {
+			throws MetierException, TechniqueException{
 
 		final UtilisateurDto utilisateur = findByLogin(login);
 
@@ -83,13 +86,23 @@ public class UtilisateurFacadeImpl extends AbstractFacade implements Utilisateur
 					+ String.valueOf(utilisateur.getNbTentatifsRestant() - 1));
 		}
 
-		// L'utilisateur est correctement autentifié. On met à jour sa date de
-		// dernière connexion et on réinitialise le nombre de tentatives.
-		utilisateurService.mettreAJourNombreConnexion(utilisateur, true);
-		utilisateurService.mettreAJourDateDerniereConnexion(utilisateur, dateDuJour);
+		// L'utilisateur est correctement autentifié.
 
-		final UtilisateurDtoLight res = getMapper().map(utilisateur, UtilisateurDtoLight.class);
+		final UtilisateurDtoLight res = getMapper().map(utilisateur,
+				UtilisateurDtoLight.class);
 		res.setUserProfil(ProfilEnum.valueOf(utilisateur.getProfil().getLibelle()));
+
+		// On génère un jeton d'authentification
+		final String token = TokenUtils.issueToken(login, res);
+
+		// On met à jour sa date de dernière connexion et on réinitialise le
+		// nombre de tentatives.
+		utilisateurService.mettreAJourNombreConnexion(utilisateur, true);
+		utilisateurService.mettreAJourInfosConnexion(utilisateur, dateDuJour, token);
+
+		// Ajout du jeton dans la reponse.
+		res.setToken(BourseConstant.AUTHENTICATION_SCHEME + token);
+
 		return res;
 	}
 
@@ -103,6 +116,11 @@ public class UtilisateurFacadeImpl extends AbstractFacade implements Utilisateur
 	@Secured({ ProfilConstant.ROLE_ADMIN_BOURSE, ProfilConstant.ROLE_ADMIN_MINISTERE })
 	public void bloquerDebloquerUtilisateur(final Integer userId, final boolean bloquer) throws MetierException {
 		utilisateurService.bloquerDebloquerUtilisateur(userId, bloquer);
+	}
+
+	@Override
+	public boolean verifierToken(final Integer id, final String nom, final String token){
+		return utilisateurService.verifierToken(id, nom, token);
 	}
 
 }

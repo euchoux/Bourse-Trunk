@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationServiceException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -24,6 +25,7 @@ import com.auth0.jwt.exceptions.InvalidClaimException;
 
 import ci.bourse.renouv.constant.BourseConstant;
 import ci.bourse.renouv.dto.UtilisateurDtoLight;
+import ci.bourse.renouv.facade.UtilisateurFacade;
 import ci.bourse.renouv.utils.TokenUtils;
 
 /**
@@ -31,6 +33,9 @@ import ci.bourse.renouv.utils.TokenUtils;
  */
 @Component
 public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFilter {
+
+	@Autowired
+	private UtilisateurFacade utilisateurFacade;
 
 	public JwtAuthenticationFilter() {
 		super("/**");
@@ -79,6 +84,15 @@ public class JwtAuthenticationFilter extends AbstractAuthenticationProcessingFil
 			}
 
 			return null;
+		}
+
+		// Vérification de la conformité du jeton avec le dernier jeton actif de
+		// l'utilisateur.
+		final boolean tokenOk = utilisateurFacade.verifierToken(user.getId(),
+				user.getNom(), token);
+		if (!tokenOk) {
+			response.sendError(HttpServletResponse.SC_NOT_ACCEPTABLE,
+					"Le jeton fourni n'est plus actif.");
 		}
 
 		final UsernamePasswordAuthenticationToken authRequest = new UsernamePasswordAuthenticationToken("ANONYME_KEY",

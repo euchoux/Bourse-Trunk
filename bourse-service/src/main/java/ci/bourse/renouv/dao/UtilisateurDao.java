@@ -24,4 +24,14 @@ public interface UtilisateurDao extends DefaultRepository<Utilisateur, Integer> 
 	 */
 	List<Utilisateur> findAllUtilisateur();
 
+	/**
+	 * Permet de verifie si le jeton en paramètre est actif pour l'utilisateur.
+	 * 
+	 * @param id
+	 * @param nom
+	 * @param token
+	 * @return
+	 */
+	boolean verifierToken(Integer id, String nom, String token);
+
 }

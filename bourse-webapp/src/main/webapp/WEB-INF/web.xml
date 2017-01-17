@@ -46,6 +46,10 @@
 		<url-pattern>/rest/*</url-pattern>
 	</servlet-mapping>
 	
+<!-- 	<session-config> -->
+<!-- 		<session-timeout>30</session-timeout> -->
+<!-- 	</session-config> -->
+	
 	<security-constraint>
 		<display-name>Accès sécurisé -- Gestion des bourses Hors CI</display-name>
 

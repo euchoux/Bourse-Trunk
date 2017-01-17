@@ -80,6 +80,9 @@ public class Utilisateur extends AbstractData<Integer> {
 	@Column(name = "us_supprime")
 	private boolean supprime;
 
+	@Column(name = "us_jeton", length = ModelConstant.LENGTH_500)
+	private String jetonActif;
+
 	public Utilisateur() {
 		super();
 	}
@@ -305,6 +308,21 @@ public class Utilisateur extends AbstractData<Integer> {
 	 */
 	public void setSupprime(final boolean supprime) {
 		this.supprime = supprime;
+	}
+
+	/**
+	 * @return the jetonActif
+	 */
+	public String getJetonActif(){
+		return jetonActif;
+	}
+
+	/**
+	 * @param jetonActif
+	 *            the jetonActif to set
+	 */
+	public void setJetonActif(final String jetonActif){
+		this.jetonActif = jetonActif;
 	}
 
 	/*

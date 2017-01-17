@@ -114,11 +114,13 @@ public class UtilisateurServiceImpl extends AbstractService implements Utilisate
 	}
 
 	@Override
-	public void mettreAJourDateDerniereConnexion(final UtilisateurDto utilisateur, final Timestamp dateDuJour) {
+	public void mettreAJourInfosConnexion(final UtilisateurDto utilisateur,
+			final Timestamp dateDuJour, final String tokenActif){
 		if (utilisateur != null && utilisateur.getId() != null) {
 			final Utilisateur user = utilisateurDao.findById(utilisateur.getId());
 			if (user != null) {
 				user.setDateDerniereConnexion(dateDuJour);
+				user.setJetonActif(tokenActif);
 				utilisateurDao.update(user);
 			}
 		}
@@ -144,6 +146,11 @@ public class UtilisateurServiceImpl extends AbstractService implements Utilisate
 
 		user.setSupprime(true);
 		utilisateurDao.update(user);
+	}
+
+	@Override
+	public boolean verifierToken(final Integer id, final String nom, final String token){
+		return utilisateurDao.verifierToken(id, nom, token);
 	}
 
 }

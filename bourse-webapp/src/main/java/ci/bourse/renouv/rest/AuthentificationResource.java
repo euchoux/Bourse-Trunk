@@ -19,10 +19,8 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import ci.bourse.renouv.constant.BourseConstant;
 import ci.bourse.renouv.dto.UtilisateurDtoLight;
 import ci.bourse.renouv.facade.UtilisateurFacade;
-import ci.bourse.renouv.utils.TokenUtils;
 
 /**
  * La ressource REST permettant de gérer l'authentification de l'utilisateur.
@@ -72,12 +70,6 @@ public class AuthentificationResource {
 			// Authenticate the user using the credentials provided
 			final UtilisateurDtoLight user = utilisateurFacade.verifierLoginMdp(login,
 					password, new Timestamp(new Date().getTime()));
-
-			// Issue a token for the user
-			final String token = TokenUtils.issueToken(login, user);
-
-			// Ajout du jeton dans la reponse.
-			user.setToken(BourseConstant.AUTHENTICATION_SCHEME + token);
 
 			// Return the token on the response
 			return Response.ok(jsonMapper.writeValueAsString(user)).build();

@@ -60,4 +60,29 @@ public class UtilisateurDaoImpl extends AbstractHibernateRepository<Utilisateur,
 		return getSession().createQuery(criteria).getResultList();
 	}
 
+	@Override
+	public boolean verifierToken(final Integer id, final String nom, final String token){
+
+		Utilisateur res;
+
+		final CriteriaBuilder builder = getSession().getCriteriaBuilder();
+
+		final CriteriaQuery<Utilisateur> criteria = builder
+				.createQuery(Utilisateur.class);
+		final Root<Utilisateur> root = criteria.from(Utilisateur.class);
+		criteria.select(root);
+		criteria.where(builder.and(builder.equal(root.get("id"), id),
+				builder.and(builder.equal(root.get("nom"), nom),
+						builder.and(builder.equal(root.get("jetonActif"), token),
+								builder.isFalse(root.get("supprime"))))));
+
+		try {
+			res = getSession().createQuery(criteria).getSingleResult();
+		} catch (final NoResultException e) {
+			res = null;
+		}
+
+		return res != null;
+	}
+
 }

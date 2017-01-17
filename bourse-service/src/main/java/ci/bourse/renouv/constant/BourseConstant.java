@@ -43,7 +43,7 @@ public final class BourseConstant {
 	/**
 	 * Durée de vie du jeton en minute.
 	 */
-	public static final Integer DUREE_JETON = 30;
+	public static final Integer DUREE_JETON = 1440;
 
 	public static final String CLAIM_ID = "userId";
 	public static final String CLAIM_NOM = "nom";

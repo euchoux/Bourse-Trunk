@@ -64,8 +64,10 @@ public interface UtilisateurService extends Serializable {
 	 * 
 	 * @param utilisateur
 	 * @param dateDuJour
+	 * @param tokenActif
 	 */
-	void mettreAJourDateDerniereConnexion(UtilisateurDto utilisateur, Timestamp dateDuJour);
+	void mettreAJourInfosConnexion(UtilisateurDto utilisateur, Timestamp dateDuJour,
+			String tokenActif);
 
 	/**
 	 * Bloque ou débloque un utilisateur.
@@ -84,5 +86,15 @@ public interface UtilisateurService extends Serializable {
 	 * @throws MetierException
 	 */
 	void supprimerUtilisateur(Integer userId) throws MetierException;
+
+	/**
+	 * Permet de verifie si le jeton en paramètre est actif pour l'utilisateur.
+	 * 
+	 * @param id
+	 * @param nom
+	 * @param token
+	 * @return
+	 */
+	boolean verifierToken(Integer id, String nom, String token);
 
 }

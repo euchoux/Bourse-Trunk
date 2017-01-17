@@ -7,6 +7,7 @@ import java.util.List;
 import ci.bourse.renouv.dto.UtilisateurDto;
 import ci.bourse.renouv.dto.UtilisateurDtoLight;
 import ci.bourse.renouv.exception.MetierException;
+import ci.bourse.renouv.exception.TechniqueException;
 
 /**
  * @author euchoux
@@ -61,7 +62,8 @@ public interface UtilisateurFacade extends Serializable {
 	 * @return {@link UtilisateurDtoLight}
 	 * @throws MetierException
 	 */
-	UtilisateurDtoLight verifierLoginMdp(String login, String password, Timestamp dateDuJour) throws MetierException;
+	UtilisateurDtoLight verifierLoginMdp(String login, String password,
+			Timestamp dateDuJour) throws MetierException, TechniqueException;
 
 	/**
 	 * Supprime de façon logique (supprime=true) un utilisateur de la base de
@@ -80,5 +82,15 @@ public interface UtilisateurFacade extends Serializable {
 	 * @throws MetierException
 	 */
 	void bloquerDebloquerUtilisateur(Integer userId, boolean bloquer) throws MetierException;
+
+	/**
+	 * Permet de verifie si le jeton en paramètre est actif pour l'utilisateur.
+	 * 
+	 * @param id
+	 * @param nom
+	 * @param token
+	 * @return
+	 */
+	boolean verifierToken(Integer id, String nom, String token);
 
 }

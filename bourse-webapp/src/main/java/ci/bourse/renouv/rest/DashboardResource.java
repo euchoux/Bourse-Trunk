@@ -6,7 +6,6 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,8 +24,6 @@ import ci.bourse.renouv.utils.DateUtils;
 @Component
 @Path("/dashboard")
 public class DashboardResource {
-
-	private static final Logger LOGGER = Logger.getLogger(DashboardResource.class);
 
 	@Autowired
 	private DashboardFacade dashboardFacade;
