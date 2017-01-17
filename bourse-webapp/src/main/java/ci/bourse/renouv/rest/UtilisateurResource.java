@@ -124,7 +124,7 @@ public class UtilisateurResource {
 				paysId, sexeId, codeProfil, pays, profil, sexe);
 
 		try {
-			utilisateur.setDateNaissance(DateUtils.fromString(dateNaissance, DateUtils.formatClassique));
+			utilisateur.setDateNaissance(DateUtils.fromString(dateNaissance, DateUtils.CLASSIQUE_FORMAT));
 		} catch (final MetierException e) {
 			return Response.status(Response.Status.NOT_ACCEPTABLE).entity(e.getMessage()).build();
 		}
@@ -192,7 +192,7 @@ public class UtilisateurResource {
 		utilisateur.setId(userId);
 
 		try {
-			utilisateur.setDateNaissance(DateUtils.fromString(dateNaissance, DateUtils.formatClassique));
+			utilisateur.setDateNaissance(DateUtils.fromString(dateNaissance, DateUtils.CLASSIQUE_FORMAT));
 		} catch (final MetierException e) {
 			return Response.status(Response.Status.NOT_ACCEPTABLE).entity(e.getMessage()).build();
 		}

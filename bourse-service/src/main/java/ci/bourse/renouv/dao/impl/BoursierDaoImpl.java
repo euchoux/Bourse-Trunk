@@ -56,8 +56,6 @@ public class BoursierDaoImpl extends AbstractHibernateRepository<Boursier, Integ
 	@Override
 	public Integer trouverNombreTotalBoursier(){
 
-		Integer res = Integer.valueOf(0);
-
 		final CriteriaBuilder builder = getSession().getCriteriaBuilder();
 
 		final Metamodel metamodel = getSession().getMetamodel();
@@ -80,9 +78,8 @@ public class BoursierDaoImpl extends AbstractHibernateRepository<Boursier, Integ
 
 		final Long nb = getSession().createQuery(criteria)
 				.getSingleResult();
-		res = nb.intValue();
 
-		return res;
+		return nb.intValue();
 	}
 
 }

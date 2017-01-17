@@ -1,6 +1,7 @@
 package ci.bourse.renouv.model;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -58,6 +59,18 @@ public class Renouvellement extends AbstractData<Integer> {
 	@OneToOne
 	@JoinColumn(name = "fiche_id")
 	private FicheConfidentielle ficheConfidentielle;
+
+	@Column(name = "archive")
+	private boolean archive;
+
+	@Column(name = "date_validation_ambassade")
+	private Date dateValidationAmbassade;
+
+	@Column(name = "date_validation_dob")
+	private Date dateValidationDob;
+
+	@Column(name = "date_validation_commission")
+	private Date dateValidationCommission;
 
 	public Renouvellement() {
 		super();
@@ -204,6 +217,66 @@ public class Renouvellement extends AbstractData<Integer> {
 	 */
 	public void setFicheConfidentielle(final FicheConfidentielle ficheConfidentielle) {
 		this.ficheConfidentielle = ficheConfidentielle;
+	}
+
+	/**
+	 * @return the archive
+	 */
+	public boolean isArchive(){
+		return archive;
+	}
+
+	/**
+	 * @param archive
+	 *            the archive to set
+	 */
+	public void setArchive(final boolean archive){
+		this.archive = archive;
+	}
+
+	/**
+	 * @return the dateValidationAmbassade
+	 */
+	public Date getDateValidationAmbassade(){
+		return dateValidationAmbassade;
+	}
+
+	/**
+	 * @param dateValidationAmbassade
+	 *            the dateValidationAmbassade to set
+	 */
+	public void setDateValidationAmbassade(final Date dateValidationAmbassade){
+		this.dateValidationAmbassade = dateValidationAmbassade;
+	}
+
+	/**
+	 * @return the dateValidationDob
+	 */
+	public Date getDateValidationDob(){
+		return dateValidationDob;
+	}
+
+	/**
+	 * @param dateValidationDob
+	 *            the dateValidationDob to set
+	 */
+	public void setDateValidationDob(final Date dateValidationDob){
+		this.dateValidationDob = dateValidationDob;
+	}
+
+	/**
+	 * @return the dateValidationCommission
+	 */
+	public Date getDateValidationCommission(){
+		return dateValidationCommission;
+	}
+
+	/**
+	 * @param dateValidationCommission
+	 *            the dateValidationCommission to set
+	 */
+	public void setDateValidationCommission(final Date dateValidationCommission){
+		this.dateValidationCommission = dateValidationCommission;
 	}
 
 	/**

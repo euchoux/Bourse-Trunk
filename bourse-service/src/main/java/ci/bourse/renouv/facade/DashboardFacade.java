@@ -12,8 +12,9 @@ public interface DashboardFacade extends Serializable {
 	/**
 	 * Construit et retourne les indicateurs du tableau de bord.
 	 * 
+	 * @param anneeCourante
 	 * @return
 	 */
-	DashboardDto loadDashboard();
+	DashboardDto loadDashboard(Integer anneeCourante);
 
 }

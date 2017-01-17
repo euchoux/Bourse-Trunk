@@ -1,6 +1,5 @@
 package ci.bourse.renouv.service.impl;
 
-import java.util.Calendar;
 import java.util.Map;
 import java.util.TreeMap;
 
@@ -26,10 +25,9 @@ public class BoursierServiceImpl extends AbstractService implements BoursierServ
 	private BourseDao bourseDao;
 
 	@Override
-	public Map<String, Double> trouverMontantBourseParAnnee(final Integer nbAnneeMax) {
+	public Map<String, Double> trouverMontantBourseParAnnee(final Integer nbAnneeMax,
+			final Integer anneeCourante){
 		final Map<String, Double> res = new TreeMap<String, Double>();
-		final Calendar cal = Calendar.getInstance();
-		final Integer anneeCourante = cal.get(Calendar.YEAR);
 
 		for (Integer i = 0; i < nbAnneeMax; i++) {
 			final Double montant = boursierDao
@@ -41,7 +39,7 @@ public class BoursierServiceImpl extends AbstractService implements BoursierServ
 	}
 
 	@Override
-	public Map<String, Integer> trouverNombreBoursierParPays() {
+	public Map<String, Integer> trouverNombreBoursierParPays(){
 		return bourseDao.trouverNombreBoursierParPays();
 	}
 

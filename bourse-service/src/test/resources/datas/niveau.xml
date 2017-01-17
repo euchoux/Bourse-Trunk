@@ -1,0 +1,12 @@
+<dataset>
+	<Niveau niveau_id="101" nv_code="DEUG1" nv_libelle="DEUG1"/>
+	<Niveau niveau_id="102" nv_code="DEUG2" nv_libelle="DEUG2"/>
+	<Niveau niveau_id="103" nv_code="LIC" nv_libelle="Licence"/>
+	<Niveau niveau_id="104" nv_code="M1" nv_libelle="Master 1"/>
+	<Niveau niveau_id="105" nv_code="M2" nv_libelle="Master 2"/>
+	<Niveau niveau_id="106" nv_code="1DOC" nv_libelle="1ère année doctorat"/>
+	<Niveau niveau_id="107" nv_code="2DOC" nv_libelle="2ème année doctorat"/>
+	<Niveau niveau_id="108" nv_code="3DOC" nv_libelle="3ème année doctorat"/>
+	<Niveau niveau_id="109" nv_code="DOC" nv_libelle="Doctorat"/>
+	<Niveau niveau_id="110" nv_code="POST" nv_libelle="Post doctorat"/>
+</dataset>

@@ -60,5 +60,6 @@ public final class BourseConstant {
 
 	public static final String CODE_STATUT_REFUSEE = "REF";
 	public static final String CODE_STATUT_SUSPENDU = "SUS";
+	public static final String CODE_STATUT_DOCUMENT_MANQUANT = "DOC";
 
 }

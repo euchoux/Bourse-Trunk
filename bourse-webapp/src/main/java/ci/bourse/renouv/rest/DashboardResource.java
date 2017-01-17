@@ -14,6 +14,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import ci.bourse.renouv.facade.DashboardFacade;
+import ci.bourse.renouv.utils.DateUtils;
 
 /**
  * La ressource REST permettant de gérer l'authentification de l'utilisateur.
@@ -45,7 +46,8 @@ public class DashboardResource {
 	public Response loadDashBoard() throws JsonProcessingException {
 		final ObjectMapper jsonMapper = new ObjectMapper();
 
-		return Response.ok(jsonMapper.writeValueAsString(dashboardFacade.loadDashboard()))
+		return Response.ok(jsonMapper.writeValueAsString(
+				dashboardFacade.loadDashboard(DateUtils.getAnneeScolaireCourante())))
 					.build();
 
 	}

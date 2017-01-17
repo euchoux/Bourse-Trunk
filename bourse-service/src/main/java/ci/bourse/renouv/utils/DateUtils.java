@@ -1,5 +1,6 @@
 package ci.bourse.renouv.utils;
 
+import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -14,7 +15,8 @@ import ci.bourse.renouv.exception.MetierException;
  */
 public class DateUtils {
 
-	public static final String formatClassique = "dd-MM-yyyy";
+	public static final String CLASSIQUE_FORMAT = "dd-MM-yyyy";
+	private static final String DEFAULT_FORMAT = "dd/MM/yyyy";
 
 	public DateUtils() {
 	}
@@ -69,5 +71,84 @@ public class DateUtils {
 		cal.clear();
 		cal.set(annee, Calendar.DECEMBER, 31, 23, 59);
 		return cal.getTime();
+	}
+
+	/**
+	 * Permet de retourner l'année en cours
+	 * 
+	 * @return
+	 */
+	public static Integer getAnneeScolaireCourante(){
+		final Calendar cal = Calendar.getInstance();
+		return cal.get(Calendar.YEAR);
+	}
+
+	/**
+	 * Permet de formater une date avec le format par défaut.
+	 * 
+	 * @param date
+	 * @return
+	 */
+	public static String format(final Date date){
+
+		return toString(date, DEFAULT_FORMAT);
+	}
+
+	/**
+	 * Copie une date vers une nouvelle (crée une nouvelle instance)
+	 * 
+	 * @param date
+	 * @return
+	 */
+	public static Date copyOf(final Date date){
+		Date res = null;
+		if (date != null) {
+			res = (Date) date.clone();
+		}
+		return res;
+	}
+
+	/**
+	 * Copie une timestap vers une nouvelle (crée une nouvelle instance)
+	 * 
+	 * @param date
+	 * @return
+	 */
+	public static Timestamp copyOf(final Timestamp date){
+		Timestamp res = null;
+		if (date != null) {
+			res = (Timestamp) date.clone();
+		}
+		return res;
+	}
+
+	/**
+	 * savoir si deux dates sont égales sans tenir compte de heure etc
+	 * 
+	 * @param date
+	 * @param dateRef
+	 * @return : vrai si c'est égale
+	 */
+	public static boolean isDateEgale(final Date date, final Date dateRef){
+		boolean egale = true;
+		if ((date != null) && (dateRef != null)) {
+			final Calendar dateCourante = Calendar.getInstance();
+			dateCourante.setTime(date);
+			dateCourante.clear(Calendar.HOUR_OF_DAY);
+			dateCourante.clear(Calendar.MINUTE);
+			dateCourante.clear(Calendar.SECOND);
+			dateCourante.clear(Calendar.MILLISECOND);
+
+			final Calendar dateReference = Calendar.getInstance();
+			dateReference.setTime(dateRef);
+			dateReference.clear(Calendar.HOUR_OF_DAY);
+			dateReference.clear(Calendar.MINUTE);
+			dateReference.clear(Calendar.SECOND);
+			dateReference.clear(Calendar.MILLISECOND);
+
+			egale = dateCourante.compareTo(dateReference) == 0;
+		}
+
+		return egale;
 	}
 }

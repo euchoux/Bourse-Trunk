@@ -1,0 +1,11 @@
+<dataset>
+	<Renouvellement revouv_id="101" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="5" re_etablissement="EMSI RABAT" bourse_id="101" statut_id="104" niveau_id="103"  archive="FALSE" date_validation_ambassade="2017-01-10 00:00:00" fiche_id="101" />
+	<Renouvellement revouv_id="102" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="3" re_etablissement="ISERT CASA" bourse_id="102" statut_id="102" niveau_id="101"  archive="FALSE" />
+	<Renouvellement revouv_id="104" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="5" re_etablissement="ISERT CASA" bourse_id="104" statut_id="104" niveau_id="103"  archive="FALSE" />
+	<Renouvellement revouv_id="105" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="2" re_etablissement="EMSI RABAT" bourse_id="105" statut_id="106" niveau_id="105"  archive="FALSE" />
+	<Renouvellement revouv_id="107" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="5" re_etablissement="EMSI RABAT" bourse_id="107" statut_id="104" niveau_id="105"  archive="FALSE" />
+	<Renouvellement revouv_id="108" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="1" re_etablissement="EMSI RABAT" bourse_id="101" statut_id="101" niveau_id="102"  archive="TRUE" />
+	<Renouvellement revouv_id="109" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="5" re_etablissement="EMSI RABAT" bourse_id="102" statut_id="101" niveau_id="106"  archive="TRUE" date_validation_ambassade="2017-01-10 00:00:00" date_validation_dob="2017-01-14 00:00:00" />
+	<Renouvellement revouv_id="110" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="4" re_etablissement="ISERT CASA" bourse_id="103" statut_id="101" niveau_id="101"  archive="TRUE" date_validation_ambassade="2017-01-10 00:00:00" date_validation_dob="2017-01-14 00:00:00" />
+	<Renouvellement revouv_id="111" re_date_soumission="2017-01-07 00:00:00" re_diplome_prepare="Ingénierie" re_duree_formation="5" re_etablissement="EMSI RABAT" bourse_id="104" statut_id="101" niveau_id="103"  archive="TRUE" />
+</dataset>

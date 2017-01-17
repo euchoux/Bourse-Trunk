@@ -17,19 +17,16 @@ public class DashBoardBoursierDto implements Serializable {
 
 	private Integer nbDemandesNonSoumises;
 
-	private Integer nbDemandesEnAttenteAmbassade;
+	private Integer nbEnAttenteValidationAmbassade;
 
-	private Integer nbDemandesEnAttenteFicheConfidentielle;
-
-	private Integer nbDemandesEnAttenteDirectionBourses;
+	private Integer nbEnAttenteValidationDob;
 
 	public DashBoardBoursierDto() {
 		super();
 		nbTotalBoursier = Integer.valueOf(0);
 		nbDemandesNonSoumises = Integer.valueOf(0);
-		nbDemandesEnAttenteAmbassade = Integer.valueOf(0);
-		nbDemandesEnAttenteFicheConfidentielle = Integer.valueOf(0);
-		nbDemandesEnAttenteDirectionBourses = Integer.valueOf(0);
+		nbEnAttenteValidationAmbassade = Integer.valueOf(0);
+		nbEnAttenteValidationDob = Integer.valueOf(0);
 	}
 
 	/**
@@ -65,46 +62,99 @@ public class DashBoardBoursierDto implements Serializable {
 	/**
 	 * @return the nbDemandesEnAttenteAmbassade
 	 */
-	public Integer getNbDemandesEnAttenteAmbassade() {
-		return nbDemandesEnAttenteAmbassade;
+	public Integer getNbEnAttenteValidationAmbassade(){
+		return nbEnAttenteValidationAmbassade;
 	}
 
 	/**
 	 * @param nbDemandesEnAttenteAmbassade
 	 *            the nbDemandesEnAttenteAmbassade to set
 	 */
-	public void setNbDemandesEnAttenteAmbassade(final Integer nbDemandesEnAttenteAmbassade) {
-		this.nbDemandesEnAttenteAmbassade = nbDemandesEnAttenteAmbassade;
-	}
-
-	/**
-	 * @return the nbDemandesEnAttenteFicheConfidentielle
-	 */
-	public Integer getNbDemandesEnAttenteFicheConfidentielle() {
-		return nbDemandesEnAttenteFicheConfidentielle;
-	}
-
-	/**
-	 * @param nbDemandesEnAttenteFicheConfidentielle
-	 *            the nbDemandesEnAttenteFicheConfidentielle to set
-	 */
-	public void setNbDemandesEnAttenteFicheConfidentielle(final Integer nbDemandesEnAttenteFicheConfidentielle) {
-		this.nbDemandesEnAttenteFicheConfidentielle = nbDemandesEnAttenteFicheConfidentielle;
+	public void setNbEnAttenteValidationAmbassade(
+			final Integer nbEnAttenteValidationAmbassade){
+		this.nbEnAttenteValidationAmbassade = nbEnAttenteValidationAmbassade;
 	}
 
 	/**
 	 * @return the nbDemandesEnAttenteDirectionBourses
 	 */
-	public Integer getNbDemandesEnAttenteDirectionBourses() {
-		return nbDemandesEnAttenteDirectionBourses;
+	public Integer getNbEnAttenteValidationDob(){
+		return nbEnAttenteValidationDob;
 	}
 
 	/**
 	 * @param nbDemandesEnAttenteDirectionBourses
 	 *            the nbDemandesEnAttenteDirectionBourses to set
 	 */
-	public void setNbDemandesEnAttenteDirectionBourses(final Integer nbDemandesEnAttenteDirectionBourses) {
-		this.nbDemandesEnAttenteDirectionBourses = nbDemandesEnAttenteDirectionBourses;
+	public void setNbEnAttenteValidationDob(final Integer nbEnAttenteValidationDob){
+		this.nbEnAttenteValidationDob = nbEnAttenteValidationDob;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode(){
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nbDemandesNonSoumises == null) ? 0
+				: nbDemandesNonSoumises.hashCode());
+		result = prime * result + ((nbEnAttenteValidationAmbassade == null) ? 0
+				: nbEnAttenteValidationAmbassade.hashCode());
+		result = prime * result + ((nbEnAttenteValidationDob == null) ? 0
+				: nbEnAttenteValidationDob.hashCode());
+		result = prime * result
+				+ ((nbTotalBoursier == null) ? 0 : nbTotalBoursier.hashCode());
+		return result;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(final Object obj){
+		if (this == obj) {
+			return true;
+		}
+		if (obj == null) {
+			return false;
+		}
+		if (getClass() != obj.getClass()) {
+			return false;
+		}
+		final DashBoardBoursierDto other = (DashBoardBoursierDto) obj;
+		if (nbDemandesNonSoumises == null) {
+			if (other.nbDemandesNonSoumises != null) {
+				return false;
+			}
+		} else if (!nbDemandesNonSoumises.equals(other.nbDemandesNonSoumises)) {
+			return false;
+		}
+		if (nbEnAttenteValidationAmbassade == null) {
+			if (other.nbEnAttenteValidationAmbassade != null) {
+				return false;
+			}
+		} else if (!nbEnAttenteValidationAmbassade
+				.equals(other.nbEnAttenteValidationAmbassade)) {
+			return false;
+		}
+		if (nbEnAttenteValidationDob == null) {
+			if (other.nbEnAttenteValidationDob != null) {
+				return false;
+			}
+		} else if (!nbEnAttenteValidationDob.equals(other.nbEnAttenteValidationDob)) {
+			return false;
+		}
+		if (nbTotalBoursier == null) {
+			if (other.nbTotalBoursier != null) {
+				return false;
+			}
+		} else if (!nbTotalBoursier.equals(other.nbTotalBoursier)) {
+			return false;
+		}
+		return true;
 	}
 
 }

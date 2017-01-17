@@ -38,14 +38,14 @@ public class DateUtilsTest extends TestCase {
 		final Calendar cal = Calendar.getInstance();
 		cal.clear();
 		cal.set(1980, 04, 22, 0, 0, 0);
-		assertEquals(cal.getTime().getTime(), DateUtils.fromString("22-05-1980", DateUtils.formatClassique).getTime());
+		assertEquals(cal.getTime().getTime(), DateUtils.fromString("22-05-1980", DateUtils.CLASSIQUE_FORMAT).getTime());
 	}
 
 	public void testToString() throws MetierException {
 		final Calendar cal = Calendar.getInstance();
 		cal.clear();
 		cal.set(1980, 04, 22, 0, 0, 0);
-		assertEquals("22-05-1980", DateUtils.toString(cal.getTime(), DateUtils.formatClassique));
+		assertEquals("22-05-1980", DateUtils.toString(cal.getTime(), DateUtils.CLASSIQUE_FORMAT));
 	}
 
 	public void testBorneMinDate() throws MetierException {
