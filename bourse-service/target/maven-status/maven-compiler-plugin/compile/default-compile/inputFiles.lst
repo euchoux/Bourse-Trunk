@@ -18,6 +18,7 @@
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/NiveauDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/impl/LienDaoImpl.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/App.java
+/Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/utils/TokenUtils.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dao/ProfilDao.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/dto/SerieDto.java
 /Users/euchoux/dev/projects/ma-bourse/workspace/Trunk/bourse-service/src/main/java/ci/bourse/renouv/securite/ProfilEnum.java

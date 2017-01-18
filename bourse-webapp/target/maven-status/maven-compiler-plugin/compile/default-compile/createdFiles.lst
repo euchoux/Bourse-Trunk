@@ -6,5 +6,4 @@ ci/bourse/renouv/rest/DashboardResource.class
 ci/bourse/renouv/rest/UtilisateurResource.class
 ci/bourse/renouv/securite/RestAuthenticationEntryPoint.class
 ci/bourse/renouv/rest/NomenclatureResource.class
-ci/bourse/renouv/utils/TokenUtils.class
 ci/bourse/renouv/securite/JwtAuthenticationSuccessHandler.class
